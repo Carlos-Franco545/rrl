@@ -42,7 +42,7 @@ def formato_fecha(fecha_iso):
 
 @app.route("/")
 def index():
-    return render_template("formulario.html")
+    return render_template("inicio.html")
 
 @app.route("/generar", methods=["POST"])
 def generar():
