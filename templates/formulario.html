@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cédula de Registro 2025-2026</title>
+<form action="/generar" method="POST">
+    <style>
+        input {
+    font-size: 18px;
+}
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+}
+h2{
+    background:#003366;
+    color:white;
+    padding:10px;
+}
+fieldset{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    background:white;
+}
+label{
+    display:block;
+    margin-top:10px;
+}
+input, select, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:4px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+button{
+    background:#003366;
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    width:100%;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0055aa;
+}
+.required {
+    color: red;
+    font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+    <label>campos obligatorios de llenar marcados con un *</label>
+
+<h2>Datos Generales del Alumno</h2>
+    <fieldset>
+
+    <input type="text" name="cicloEscolar"  value="2025-2026">
+    <input type="date" name="fecha2">
+        
+        <input type="number" name="nia" required placeholder="NIA *">
+        <input type="text" name="apePatAl" required placeholder="Apellido Paterno*">
+        <input type="text" name="apeMatAl" required placeholder="Apellido Materno*">
+        <input type="text" name="nombreAlu" required placeholder="Nombre(s)*">
+        <input type="text" name="curpAlu" maxlength="18" required placeholder="CURP*">
+        <input type="date" name="fechaNacAlu" required>
+        <input type="text" name="paisNacAlu" required placeholder="País de Nacimiento*">
+        <input type="text" name="entidadNacAlu" required placeholder="Entidad de Nacimiento*">
+
+    <label>Género *</label>
+        <input type="radio" name="generoHAlu" value="X" required> Hombre
+        <input type="radio" name="generoHAlu" value="X" required> Mujer 
+        
+        <input type="text" name="discAlu" placeholder="Discapacidad / Aptitud Diferenciada">
+        <input type="text" name="tipSangreAlu" placeholder="Tipo de Sangre">
+        <input type="text" name="lenguaMatAlu" required placeholder="Lengua Materna*">
+
+    </fieldset>
+
+
+<h2>Datos del Padre</h2>
+    <fieldset>
+        
+        <input type="text" name="apePatPadre" required placeholder="Apellido Paterno*">
+        <input type="text" name="apeMatPadre" required placeholder="Apellido Materno*">
+        <input type="text" name="nombrePadre" required placeholder="Nombre(s)*">
+        <input type="text" name="curpPadre" maxlength="18" required placeholder="CURP*">
+        <input type="date" name="fechaNacPadre" required>
+        <input type="text" name="paisNacPadre" required placeholder="País de Nacimiento*">
+        <input type="text" name="nivelEstudiosPadre" required placeholder="Nivel de Estudios*">
+
+    <label>Vive con el alumno *</label>
+        <input type="radio" name="vivePadre" value="X" required> SI
+        <input type="radio" name="vivePadre" value="X" required> NO
+
+    <label>En caso de no vivir con el alumno</label>
+        <input type="radio" name="TutorPadre" value="X" > ES EL TUTOR
+        <input type="radio" name="TutorPadre" value="X" > ES FINADO
+        
+        <input type="text" name="paisResPadre" placeholder="País de Residencia">
+        <input type="text" name="entidadPadre" required placeholder="Entidad*">
+        <input type="text" name="municipioPadre" required placeholder="Municipio*">
+        <input type="text" name="locPadre" required placeholder="Localidad*">
+        <input type="text" name="cpPadre" required placeholder="CP*">
+        <input type="text" name="colPadre" required placeholder="Colonia*">
+        <input type="text" name="callePadre" required placeholder="Calle*">
+        <input type="text" name="numExtPadre" placeholder="Num. Ext.">
+        <input type="text" name="numIntPadre" placeholder="Num. Int.">
+        
+        <input type="tel" name="telFijPadre" placeholder="Teléfono Fijo">
+        <input type="tel" name="telCelPadre" required placeholder="Teléfono Celular*">
+        <input type="email" name="emailPadre" required placeholder="Email*">
+        <input type="text" name="ocupacionPadre" placeholder="Ocupación">
+        <input type="text" name="horarioPadre" placeholder="Horario">
+        <input type="tel" name="telTraPadre" placeholder="Teléfono Trabajo">
+        <input type="text" name="extPadre" placeholder="Extensión">
+        <input type="email" name="emailTrabPadre" placeholder="Email Trabajo">
+
+    </fieldset>
+
+
+<h2>Datos de la Madre</h2>
+    <fieldset>
+        
+        <input type="text" name="apePatMadre" required placeholder="Apellido Paterno*">
+        <input type="text" name="apeMatMadre" required placeholder="Apellido Materno*">
+        <input type="text" name="nombreMadre" required placeholder="Nombre(s)*">
+        <input type="text" name="curpMadre" maxlength="18" required placeholder="CURP*">
+        <input type="date" name="fechaNacMadre" required>
+        <input type="text" name="paisNacMadre" required placeholder="País de Nacimiento*">
+        <input type="text" name="nivelEstudiosMadre" required placeholder="Nivel de Estudios*">
+
+    <label>Vive con el alumno *</label>
+        <input type="radio" name="viveMadre" value="X" required> SI
+        <input type="radio" name="viveMadre" value="X" required> NO
+
+    <label>En caso de no vivir con el alumno</label>
+        <input type="radio" name="esTutorPadre" value="X" > ES EL TUTOR
+        <input type="radio" name="esTutorPadre" value="X" > ES FINADO
+        
+        <input type="text" name="paisResMadre" placeholder="País de Residencia">
+        <input type="text" name="entidadMadre" required placeholder="Entidad*">
+        <input type="text" name="municipioMadre" required placeholder="Municipio*">
+        <input type="text" name="locMadre" required placeholder="Localidad*">
+        <input type="text" name="cpMadre" required placeholder="CP*">
+        <input type="text" name="colMadre" required placeholder="Colonia*">
+        <input type="text" name="calleMadre" required placeholder="Calle*">
+        <input type="text" name="numExtMadre" placeholder="Num. Ext.">
+        <input type="text" name="numIntMadre" placeholder="Num. Int.">
+        
+        <input type="tel" name="telFijMadre" placeholder="Teléfono Fijo">
+        <input type="tel" name="telCelMadre" required placeholder="Teléfono Celular*">
+        <input type="email" name="emailMadre" required placeholder="Email*">
+        <input type="text" name="ocupacionMadre" placeholder="Ocupación">
+        <input type="text" name="horarioMadre" placeholder="Horario">
+        <input type="tel" name="telTraMadre" placeholder="Teléfono Trabajo">
+        <input type="text" name="extMadre" placeholder="Extensión">
+        <input type="email" name="emailTrabMadre" placeholder="Email Trabajo">
+
+    </fieldset>
+
+
+<h2>Datos del Tutor</h2>
+    <fieldset>
+        
+        <input type="text" name="parentescoTutor" required placeholder="Parentesco*">
+        <input type="text" name="apePatTutor" required placeholder="Apellido Paterno*">
+        <input type="text" name="apeMatTutor" required placeholder="Apellido Materno*">
+        <input type="text" name="nombreTutor" required placeholder="Nombre(s)*">
+        <input type="text" name="curpTutor" maxlength="18" required placeholder="CURP*">
+        <input type="date" name="fechaNacTutor" required>
+        <input type="text" name="paisNacTutor" required placeholder="País de Nacimiento*">
+        <input type="text" name="nivelEstudiosTutor" required placeholder="Nivel de Estudios*">
+
+    <label>Vive con el alumno *</label>
+        <input type="radio" name="viveTutor" value="X" required> SI
+        <input type="radio" name="viveTutor" value="X" required> NO
+    <label>En caso de no vivir con el alumno</label>
+    <label>¿Es tutor legal?</label>
+        <input type="radio" name="esTutorSi" value="X" > SI
+        <input type="radio" name="esTutorSi" value="X" > NO
+        
+        <input type="text" name="paisResTutor" required placeholder="País de Residencia*">
+        <input type="text" name="entidadTutor" required placeholder="Entidad*">
+        <input type="text" name="municipioTutor" required placeholder="Municipio*">
+        <input type="text" name="locTutor" required placeholder="Localidad*">
+        <input type="text" name="cpTutor" required placeholder="CP*">
+        <input type="text" name="colTutor" required placeholder="Colonia*">
+        <input type="text" name="calleTutor" required placeholder="Calle*">
+        <input type="text" name="numExtTutor" placeholder="Num. Ext.">
+        <input type="text" name="numIntTutor" placeholder="Num. Int.">
+        
+        <input type="tel" name="telFijTutor" placeholder="Teléfono Fijo">
+        <input type="tel" name="telCelTutor" required placeholder="Teléfono Celular*">
+        <input type="email" name="emailTutor" required placeholder="Email*">
+        <input type="text" name="ocupacionTutor" placeholder="Ocupación">
+        <input type="text" name="horarioTutor" placeholder="Horario">
+        <input type="tel" name="telTraTutor" placeholder="Teléfono Trabajo">
+        <input type="text" name="extTutor" placeholder="Extensión">
+        <input type="email" name="emailTrabTutor" placeholder="Email Trabajo">
+
+    </fieldset>
+
+
+<h2>Documento Probatorio</h2>
+    <fieldset>
+
+        <input type="text" name="entidadFedReg" required placeholder="Entidad Registro*">
+        <input type="text" name="municipioReg" required placeholder="Municipio Registro*">
+        <input type="number" name="anioReg" required placeholder="Año Registro*">
+        <textarea name="observaciones1" placeholder="Observaciones"></textarea>
+
+    </fieldset>
+
+
+<h2>Datos de la Escuela</h2>
+    <fieldset>
+        
+        <input type="text" name="dNombreEscuela" value="SEC. FED. GRAL. RODOLFO RODRÍGUEZ LEÓN" readonly>
+        <input type="text" name="dCct" value="21DES0079P" readonly>
+        <input type="text" name="dTurno" value="MATUTINO" readonly>
+        <input type="text" name="dGrado" required placeholder="Grado*">
+        <input type="text" name="dGrupo" required placeholder="Grupo*">
+        <input type="text" name="dZE" value="03" readonly>
+
+    <button type="submit">Enviar Registro</button>
+
+    </fieldset>
+
+</form>
+</body>
+</html>

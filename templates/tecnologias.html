@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seleccion de tecnologia para primer grado</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+}
+h2{
+    background:#003366;
+    color:white;
+    padding:10px;
+}
+fieldset{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    background:white;
+}
+input, select{
+    width:100%;
+    padding:8px;
+    margin-top:10px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+button{
+    background:#003366;
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    width:100%;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0055aa;
+}
+</style>
+</head>
+
+<body>
+
+<form action="/generar" method="POST">
+
+<h2>Datos generales</h2>
+<fieldset>
+    <input type="text" name="Alumno" required placeholder="Nombre del alumno*"><br>
+    <input type="number" name="grado" required placeholder="Grado*"><br>
+    <input type="text" name="grupo" required placeholder="Grupo*"><br>
+    <input type="text" name="tutor" required placeholder="Nombre de la madre, padre o tutor*"><br>
+    <input type="text" name="municipio" required placeholder="Municipio*"><br>
+    <input type="tel" name="telefonoCasa" placeholder="Teléfono de casa"><br>
+    <input type="tel" name="cel1" required placeholder="Celular opción 1*"><br>
+    <input type="tel" name="cel2" placeholder="Celular opción 2"><br>
+    <input type="tel" name="celWhatsapp" required placeholder="Celular para grupo WhatsApp*"><br>
+</fieldset>
+<fieldset>
+<table>
+    <thead>
+        <tr>
+            <th>Tecnología</th>
+            <th>Docente</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Confección del Vestido e Industria Textil</td>
+            <td>Profa. Rosalba Vázquez González</td>
+            <td>Se enseña el proceso básico de diseño, trazado, corte y confección de prendas. Los alumnos desarrollan habilidades de costura, creatividad y trabajo con maquinaria textil.</td>
+        </tr>
+        <tr>
+            <td>Diseño y Creación Artesanal</td>
+            <td>Profa. Araceli García González</td>
+            <td>Taller enfocado en el rescate y elaboración de artesanías tradicionales mexicanas. Se trabaja con materiales como barro, madera, papel y fibras naturales, promoviendo la identidad cultural y la destreza manual.</td>
+        </tr>
+        <tr>
+            <td>Diseño y Creación Plástica</td>
+            <td>Profa. Guadalupe Viveros Ortega</td>
+            <td>Espacio para desarrollar habilidades artísticas a través del dibujo, pintura y escultura. Los alumnos aprenden técnicas básicas de expresión plástica y diseño, fomentando su creatividad e imaginación.</td>
+        </tr>
+        <tr>
+            <td>Circuitos Eléctricos</td>
+            <td>Prof. Porfirio Salgado López</td>
+            <td>Taller donde se aprenden los principios básicos de electricidad, manejo de herramientas, armado de circuitos, componentes electrónicos y normas de seguridad.</td>
+        </tr>
+        <tr>
+            <td>Informática</td>
+            <td>Prof. Isandro Montiel Baltazar</td>
+            <td>En este taller se adquieren habilidades básicas en el uso de computadoras, programas de paquetería, diseño digital y navegación segura en internet.</td>
+        </tr>
+        <tr>
+            <td>Turismo</td>
+            <td>Profa. Jessie Dyuky Molina Perdomo</td>
+            <td>Taller orientado al conocimiento del patrimonio cultural, natural y gastronómico de México. Se promueve el diseño de rutas turísticas, la hospitalidad y el trabajo en equipo.</td>
+        </tr>
+    </tbody>
+</table>
+</fieldset>
+
+
+<h2>Selección de Tecnología</h2>
+<fieldset>
+    <label>Primera Opción*</label>
+    <select name="tecnologia1" required>
+        <option value="">Seleccione una opción</option>
+        <option value="Confeccion">Confeccíon del Vestido e Industria Textil</option>
+        <option value="Diseño Artesanal">Diseño y Creacíon Artesanal</option>
+        <option value="Diseño Prastico">Diseño y Creacíon Prastica</option>
+        <option value="Circuitos">Circuitos Electricos</option>
+        <option value="Informatica">Informática</option>
+        <option value="Turismo">Turismo</option>
+    </select>
+
+    <label>Segunda Opción*</label>
+    <select name="tecnologia2" required>
+        <option value="Confeccion">Confeccíon del Vestido e Industria Textil</option>
+        <option value="Diseño Artesanal">Diseño y Creacíon Artesanal</option>
+        <option value="Diseño Prastico">Diseño y Creacíon Prastica</option>
+        <option value="Circuitos">Circuitos Electricos</option>
+        <option value="Informatica">Informática</option>
+        <option value="Turismo">Turismo</option>
+    </select>
+</fieldset>
+
+<h2>Firma</h2>
+<fieldset>
+     <input type="text" name="firma" required placeholder="Nombre del Padre o Tutor"><br>
+     <button type="submit">Enviar Registro</button>
+</fieldset>
+</form>
+</body>
+</html>
