@@ -1,5 +1,27 @@
 from flask import Flask, render_template, request, send_file
 from pdfrw import PdfReader, PdfWriter, PdfDict
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def inicio():
+    return render_template("inicio.html")
+
+@app.route("/formulario1")
+def formulario1():
+    return render_template("formulario.html")
+
+@app.route("/formulario2")
+def formulario2():
+    return render_template("formulario2.html")
+
+@app.route("/formulario3")
+def formulario3():
+    return render_template("formulario3.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 app = Flask(__name__)
 
