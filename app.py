@@ -14,7 +14,7 @@ def formulario1():
 
 @app.route("/formulario2")
 def formulario2():
-    return render_template("formulario2.html")
+    return render_template("tecnologias.html")
 
 @app.route("/formulario3")
 def formulario3():
