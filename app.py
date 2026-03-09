@@ -8,11 +8,11 @@ app = Flask(__name__)
 def inicio():
     return render_template("inicio.html")
 
-@app.route("/formulario1")
+@app.route("/formulario")
 def formulario1():
     return render_template("formulario.html")
 
-@app.route("/formulario2")
+@app.route("/tecnologias")
 def formulario2():
     return render_template("tecnologias.html")
 
@@ -42,7 +42,7 @@ def formato_fecha(fecha_iso):
 
 @app.route("/")
 def index():
-    return render_template("formulario.html")
+    return render_template("inicio.html")
 
 @app.route("/generar", methods=["POST"])
 def generar():
