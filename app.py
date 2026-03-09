@@ -2,10 +2,7 @@ from flask import Flask, render_template, request, send_file
 from pdfrw import PdfReader, PdfWriter, PdfDict
 
 app = Flask(__name__)
-
 PDF_TEMPLATE = "CEDULA_REGISTRO_ALUMNO.pdf"
-
-
 def formato_fecha(fecha_iso):
     
     try:
