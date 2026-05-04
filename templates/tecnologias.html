@@ -3,140 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seleccion de tecnologia para primer grado</title>
+<title>Selección de Tecnología</title>
 
 <style>
 body{
     font-family: Arial, sans-serif;
-    background:#f4f6f9;
+    background: linear-gradient(135deg,#5f6c7b,#3e4c59);
     margin:0;
     padding:20px;
 }
-h2{
-    background:#003366;
+
+/* CONTENEDOR */
+.container{
+    max-width: 1300px;
+    margin:auto;
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* TITULO */
+h1{
+    color:white;
+    margin-left:20px;
+}
+
+/* SECCIONES */
+.section-title{
+    background:#4a5d73;
+    color:white;
+    padding:10px 20px;
+    border-radius:25px;
+    display:inline-block;
+    margin:25px 0 10px 0;
+    font-weight:bold;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+/* CAMPOS */
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    font-weight:bold;
+    color:#4a5d73;
+    margin-top:10px;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    border-radius:20px;
+    border:1px solid #ccc;
+    margin-top:5px;
+}
+
+/* TABLA */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+th{
+    background:#4a5d73;
     color:white;
     padding:10px;
 }
-fieldset{
-    margin-bottom:20px;
-    padding:15px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    background:white;
-}
-input, select{
-    width:100%;
-    padding:8px;
-    margin-top:10px;
-    border-radius:5px;
+
+td{
+    padding:10px;
     border:1px solid #ccc;
 }
+
+/* BOTON */
 button{
-    background:#003366;
+    background:#4a5d73;
     color:white;
-    padding:12px;
+    padding:15px;
     border:none;
-    border-radius:8px;
+    border-radius:25px;
     width:100%;
     font-size:16px;
     cursor:pointer;
+    margin-top:20px;
 }
+
 button:hover{
-    background:#0055aa;
+    background:#2f3e4d;
+}
+
+.note{
+    color:white;
+    margin-left:20px;
 }
 </style>
 </head>
 
+<script>
+const select1 = document.getElementById("tecnologia1");
+const select2 = document.getElementById("tecnologia2");
+
+select1.addEventListener("change", function() {
+    
+    // Resetear opciones del select2
+    for (let option of select2.options) {
+        option.disabled = false;
+    }
+
+    // Deshabilitar la opción seleccionada en select1
+    let valorSeleccionado = select1.value;
+
+    for (let option of select2.options) {
+        if (option.value === valorSeleccionado) {
+            option.disabled = true;
+        }
+    }
+
+    // Si el usuario ya había seleccionado la misma opción en select2 → limpiarla
+    if (select2.value === valorSeleccionado) {
+        select2.value = "";
+    }
+});
+</script>
 <body>
+
+<h1>Selección de Tecnología</h1>
+<p class="note">Campos obligatorios *</p>
+
+<div class="container">
 
 <form action="/generar" method="POST">
 
-<h2>Datos generales</h2>
-<fieldset>
-    <input type="text" name="Alumno" required placeholder="Nombre del alumno*"><br>
-    <input type="number" name="grado" required placeholder="Grado*"><br>
-    <input type="text" name="grupo" required placeholder="Grupo*"><br>
-    <input type="text" name="tutor" required placeholder="Nombre de la madre, padre o tutor*"><br>
-    <input type="text" name="municipio" required placeholder="Municipio*"><br>
-    <input type="tel" name="telefonoCasa" placeholder="Teléfono de casa"><br>
-    <input type="tel" name="cel1" required placeholder="Celular opción 1*"><br>
-    <input type="tel" name="cel2" placeholder="Celular opción 2"><br>
-    <input type="tel" name="celWhatsapp" required placeholder="Celular para grupo WhatsApp*"><br>
-</fieldset>
-<fieldset>
+<!-- DATOS GENERALES -->
+<div class="section-title">Datos Generales</div>
+
+<div class="grid">
+
+<div class="field">
+<label>Nombre del Alumno *</label>
+<input type="text" name="Alumno" required>
+</div>
+
+<div class="field">
+<label>Grado *</label>
+<input type="number" name="grado" required>
+</div>
+
+<div class="field">
+<label>Grupo *</label>
+<input type="text" name="grupo" required>
+</div>
+
+<div class="field">
+<label>Nombre del Padre/Madre o Tutor *</label>
+<input type="text" name="tutor" required>
+</div>
+
+<div class="field">
+<label>Municipio *</label>
+<input type="text" name="municipio" required>
+</div>
+
+<div class="field">
+<label>Teléfono de Casa</label>
+<input type="tel" name="telefonoCasa">
+</div>
+
+<div class="field">
+<label>Celular Opción 1 *</label>
+<input type="tel" name="cel1" required>
+</div>
+
+<div class="field">
+<label>Celular Opción 2</label>
+<input type="tel" name="cel2">
+</div>
+
+<div class="field">
+<label>Celular para WhatsApp *</label>
+<input type="tel" name="celWhatsapp" required>
+</div>
+
+</div>
+
+<!-- TABLA -->
+<div class="section-title">Opciones de Tecnología</div>
+
 <table>
-    <thead>
-        <tr>
-            <th>Tecnología</th>
-            <th>Docente</th>
-            <th>Descripción</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Confección del Vestido e Industria Textil</td>
-            <td>Profa. Rosalba Vázquez González</td>
-            <td>Se enseña el proceso básico de diseño, trazado, corte y confección de prendas. Los alumnos desarrollan habilidades de costura, creatividad y trabajo con maquinaria textil.</td>
-        </tr>
-        <tr>
-            <td>Diseño y Creación Artesanal</td>
-            <td>Profa. Araceli García González</td>
-            <td>Taller enfocado en el rescate y elaboración de artesanías tradicionales mexicanas. Se trabaja con materiales como barro, madera, papel y fibras naturales, promoviendo la identidad cultural y la destreza manual.</td>
-        </tr>
-        <tr>
-            <td>Diseño y Creación Plástica</td>
-            <td>Profa. Guadalupe Viveros Ortega</td>
-            <td>Espacio para desarrollar habilidades artísticas a través del dibujo, pintura y escultura. Los alumnos aprenden técnicas básicas de expresión plástica y diseño, fomentando su creatividad e imaginación.</td>
-        </tr>
-        <tr>
-            <td>Circuitos Eléctricos</td>
-            <td>Prof. Porfirio Salgado López</td>
-            <td>Taller donde se aprenden los principios básicos de electricidad, manejo de herramientas, armado de circuitos, componentes electrónicos y normas de seguridad.</td>
-        </tr>
-        <tr>
-            <td>Informática</td>
-            <td>Prof. Isandro Montiel Baltazar</td>
-            <td>En este taller se adquieren habilidades básicas en el uso de computadoras, programas de paquetería, diseño digital y navegación segura en internet.</td>
-        </tr>
-        <tr>
-            <td>Turismo</td>
-            <td>Profa. Jessie Dyuky Molina Perdomo</td>
-            <td>Taller orientado al conocimiento del patrimonio cultural, natural y gastronómico de México. Se promueve el diseño de rutas turísticas, la hospitalidad y el trabajo en equipo.</td>
-        </tr>
-    </tbody>
+<thead>
+<tr>
+<th>Tecnología</th>
+<th>Docente</th>
+<th>Descripción</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Confección del Vestido e Industria Textil</td>
+<td>Profa. Rosalba Vázquez González</td>
+<td>Diseño, corte y confección de prendas.</td>
+</tr>
+
+<tr>
+<td>Diseño y Creación Artesanal</td>
+<td>Profa. Araceli García González</td>
+<td>Elaboración de artesanías tradicionales.</td>
+</tr>
+
+<tr>
+<td>Diseño y Creación Plástica</td>
+<td>Profa. Guadalupe Viveros Ortega</td>
+<td>Dibujo, pintura y escultura.</td>
+</tr>
+
+<tr>
+<td>Circuitos Eléctricos</td>
+<td>Prof. Porfirio Salgado López</td>
+<td>Principios de electricidad y circuitos.</td>
+</tr>
+
+<tr>
+<td>Informática</td>
+<td>Prof. Isandro Montiel Baltazar</td>
+<td>Uso de computadoras y software.</td>
+</tr>
+
+<tr>
+<td>Turismo</td>
+<td>Profa. Jessie Dyuky Molina</td>
+<td>Patrimonio cultural y rutas turísticas.</td>
+</tr>
+</tbody>
 </table>
-</fieldset>
 
+<!-- SELECCION -->
+<div class="section-title">Selección de Tecnología</div>
 
-<h2>Selección de Tecnología</h2>
-<fieldset>
-    <label>Primera Opción*</label>
-    <select name="tecnologia1" required>
-        <option value="">Seleccione una opción</option>
-        <option value="Confeccion">Confeccíon del Vestido e Industria Textil</option>
-        <option value="Diseño Artesanal">Diseño y Creacíon Artesanal</option>
-        <option value="Diseño Prastico">Diseño y Creacíon Prastica</option>
-        <option value="Circuitos">Circuitos Electricos</option>
-        <option value="Informatica">Informática</option>
-        <option value="Turismo">Turismo</option>
-    </select>
+<div class="grid">
 
-    <label>Segunda Opción*</label>
-    <select name="tecnologia2" required>
-        <option value="Confeccion">Confeccíon del Vestido e Industria Textil</option>
-        <option value="Diseño Artesanal">Diseño y Creacíon Artesanal</option>
-        <option value="Diseño Prastico">Diseño y Creacíon Prastica</option>
-        <option value="Circuitos">Circuitos Electricos</option>
-        <option value="Informatica">Informática</option>
-        <option value="Turismo">Turismo</option>
-    </select>
-</fieldset>
+<div class="field">
+<label>Primera Opción *</label>
+<select name="tecnologia1"  id="tecnologia1" required>
+<option value="">Seleccione</option>
+<option>Confección</option>
+<option>Diseño Artesanal</option>
+<option>Diseño Plástico</option>
+<option>Circuitos</option>
+<option>Informática</option>
+<option>Turismo</option>
+</select>
+</div>
 
-<h2>Firma</h2>
-<fieldset>
-     <input type="text" name="firma" required placeholder="Nombre del Padre o Tutor"><br>
-     <button type="submit">Enviar Registro</button>
-</fieldset>
+<div class="field">
+<label>Segunda Opción *</label>
+<select name="tecnologia2"  id="tecnologia2" required>
+<option value="">Seleccione</option>
+<option>Confección</option>
+<option>Diseño Artesanal</option>
+<option>Diseño Plástico</option>
+<option>Circuitos</option>
+<option>Informática</option>
+<option>Turismo</option>
+</select>
+</div>
+
+</div>
+
+<!-- FIRMA -->
+<div class="section-title">Firma</div>
+
+<div class="field">
+<label>Nombre del Padre o Tutor *</label>
+<input type="text" name="firma" required>
+</div>
+
+<button type="submit">Enviar Registro</button>
+
 </form>
+
+</div>
+
 </body>
 </html>

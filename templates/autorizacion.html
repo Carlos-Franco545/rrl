@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autorizacion de uso de imagen</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#5f6c7b,#3e4c59);
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width: 1300px;
+    margin:auto;
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:white;
+    margin-left:20px;
+}
+
+/* SECCIONES */
+.section-title{
+    background:#4a5d73;
+    color:white;
+    padding:10px 20px;
+    border-radius:25px;
+    display:inline-block;
+    margin:25px 0 10px 0;
+    font-weight:bold;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+/* CAMPOS */
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    font-weight:bold;
+    color:#4a5d73;
+    margin-top:10px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    border-radius:20px;
+    border:1px solid #ccc;
+    margin-top:5px;
+}
+
+/* RADIOS */
+.radio-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:10px;
+}
+
+/* BOTON */
+button{
+    background:#4a5d73;
+    color:white;
+    padding:15px;
+    border:none;
+    border-radius:25px;
+    width:100%;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+button:hover{
+    background:#2f3e4d;
+}
+
+.note{
+    color:white;
+    margin-left:20px;
+}
+</style>
+</head>
+<body>
+
+    <h1>Autorizacion de uso de imagen (fotografia y video) ciclo escolar 2025-2026</h1>
+    <p class="note">Campos obligatorios *</p>
+
+
+<div class="container">
+<p>Autorizo a la escuela secundaria general federal "Rodolfo Rodriguez Leon" C.C.T 21DES0079P, Con domicilio en la calle de la laja N 15 Col.
+Huixtla en teteles de Avila Castillo, Puebla, a tomar y utilizar fotografias y/o videos en los que aparezca mi hijp(a), con fines educativos,
+culturales, artisticos, pedagogicos y/o de promocion institucional, a traves de medios impresos, digitales o electronicos, tales como:
+</p>
+<p>* Publicasiones implesas dentro de la escuela</p>
+<p>* Pagina oficial y redes sociales de la institucion</p>
+<p>* Informes y evidencias academicas o administrativas</p>
+<p>* Actividades culturales, deportivas o sociales organizadas por la escuela</p>
+<p>Declero estr enterado(a) de que dichas imagenes no seran utilizadas con fines lucrativos ni comerciales y que es uso sera estrictamente 
+institucional y educativo, cuidando siempre la integridad y respeto hacia el estudiante     
+</p>
+<p>Asimismo, entiendo que esta autorizacion es voluntaria y puedo revocarla por escrito en cualquier momento durente el ciclo escolar</p>
+</div>
+    <div class="container">
+
+<form action="/generar" method="POST">
+    
+
+<div class="field"><label>Por medio del presente yo, Nombre de la Madre, Padre o tutol*</label><input type="text" name="" required></div>
+
+<div class="field"><label>del/ de la alumno(a)*</label><input type="text" name="" required></div>
+
+<div class="field"><label>Grado*</label><input type="text" name="" required></div>
+
+<div class="field"><label>Grupo*</label><input type="text" name="" required></div>
+
+
+
+<div class="field"><label>Lugar y Fecha*</label><input type="text" name="" required></div>
+
+<div class="field"><label>Telefono de contacto*</label><input type="text" name="" required></div>
+
+<div class="field"><label>Nombre del padre o tutor*</label><input type="text" name="" required></div>
+
+<button type="submit">Enviar Registro</button>
+</div>
+
+</form>
+</body>
+</html>
