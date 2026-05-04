@@ -16,7 +16,7 @@ def formato_fecha(fecha_iso):
 
 @app.route("/")
 def inicio():
-    return render_template("inicio.html")
+    return render_template("index.html")
 
 @app.route("/formulario")
 def formulario1():
@@ -28,9 +28,9 @@ def formulario2():
     return render_template("tecnologias.html")
 
 
-@app.route("/formulario3")
+@app.route("/ficha")
 def formulario3():
-    return render_template("formulario3.html")
+    return render_template("ficha.html")
 
 @app.route("/generar", methods=["POST"])
 def generar():
