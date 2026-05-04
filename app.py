@@ -29,7 +29,7 @@ def formulario2():
 
 
 @app.route("/ficha")
-def formulario3():
+def ficha():
     return render_template("ficha.html")
 
 @app.route("/generar", methods=["POST"])
