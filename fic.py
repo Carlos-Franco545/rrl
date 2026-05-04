@@ -4,7 +4,7 @@ import io
 
 app = Flask(__name__)
 
-TEMPLATE = "ficha.pdf"  # tu PDF base
+PDF_TEMPLATE = "ficha.pdf" # tu PDF base
 
 @app.route("/")
 def index():
@@ -13,9 +13,9 @@ def index():
 @app.route('/generar', methods=['POST'])
 def llenar_pdf():
 
-    data = request.form
 
-    pdf = PdfReader(TEMPLATE)
+    data = request.form
+    pdf = PdfReader(PDF_TEMPLATE)
 
     # Rellenar campos
     for page in pdf.pages:
