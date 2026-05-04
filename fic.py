@@ -1,10 +1,14 @@
-from flask import Flask, request, send_file
+from flask import Flask, request,render_template, send_file
 from pdfrw import PdfReader, PdfWriter, PdfDict
 import io
 
 app = Flask(__name__)
 
 TEMPLATE = "ficha.pdf"  # tu PDF base
+
+@app.route("/")
+def index():
+    return render_template("ficha.html")
 
 @app.route('/generar', methods=['POST'])
 def llenar_pdf():
