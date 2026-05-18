@@ -32,6 +32,10 @@ def formulario2():
 def formulario3():
     return render_template("ficha.html")
 
+@app.route("/autorizacion")
+def formulario3():
+    return render_template("autorizacion.html")
+
 @app.route("/generar", methods=["POST"])
 def generar():
 
