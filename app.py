@@ -96,18 +96,31 @@ def generar_tecnologia():
                         annotation.update(PdfDict(V='{}'.format(valor)))
 
                     # Checkboxes exclusivos de Tecnologías
-                    if campo == "tecnologia1_confec":
+                    if campo == "tecnologia1":
                         marcar_checkbox(annotation, data.get("tecnologia1") == "Confeccíon del Vestido e Industria Textil")
-                    if campo == "tecnologia1_disenoA":
+                    if campo == "tecnologia1":
                         marcar_checkbox(annotation, data.get("tecnologia1") == "Diseño y Creacion Artesanal")
-                    if campo == "tecnologia1_disenoP":
+                    if campo == "tecnologia1":
                         marcar_checkbox(annotation, data.get("tecnologia1") == "Diseño y Creacíon Prastica")
-                    if campo == "tecnologia1_circu":
+                    if campo == "tecnologia1":
                         marcar_checkbox(annotation, data.get("tecnologia1") == "Circuitos Electricos")
-                    if campo == "tecnologia1_inf":
+                    if campo == "tecnologia1":
                         marcar_checkbox(annotation, data.get("tecnologia1") == "Informática")
-                    if campo == "tecnologia1_tur":
+                    if campo == "tecnologia1":
                         marcar_checkbox(annotation, data.get("tecnologia1") == "Turismo")
+
+                    if campo == "tecnologia2":
+                        marcar_checkbox(annotation, data.get("tecnologia2") == "Confeccíon del Vestido e Industria Textil")
+                    if campo == "tecnologia2":
+                        marcar_checkbox(annotation, data.get("tecnologia2") == "Diseño y Creacion Artesanal")
+                    if campo == "tecnologia2":
+                        marcar_checkbox(annotation, data.get("tecnologia2") == "Diseño y Creacíon Prastica")
+                    if campo == "tecnologia2":
+                        marcar_checkbox(annotation, data.get("tecnologia2") == "Circuitos Electricos")
+                    if campo == "tecnologia2":
+                        marcar_checkbox(annotation, data.get("tecnologia2") == "Informática")
+                    if campo == "tecnologia2":
+                        marcar_checkbox(annotation, data.get("tecnologia2") == "Turismo")
 
     output = "seleccion_tecnologia_final.pdf"
     PdfWriter().write(output, pdf)
