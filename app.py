@@ -65,8 +65,6 @@ def generar_cedula():
     if "fechaNacTutor" in data:
         data["fechaNacTutor"] = formato_fecha(data["fechaNacTutor"])
 
-    # Manejo manual para Checkboxes de Género en el PDF basado en el Radio de HTML
-    # Nota: Ajusta 'generoHombre' y 'generoMujer' por los nombres internos reales de tu PDF
     if data.get("generoHAlu") == "H":
         data["generoHombre"] = "/Yes"
         data["generoMujer"] = "/Off"
@@ -94,7 +92,7 @@ def generar_cedula():
 def generar_ficha():
     data = request.form.to_dict()
 
-    # Corrección de parches lógicos debido a los valores del HTML de la ficha:
+
     # 1. Apoyo Psicológico envía 'Caminando' para SÍ y 'Transporte' para NO
     if data.get("psico") == "Caminando":
         data["psico"] = "Si"
@@ -131,7 +129,6 @@ def generar_tecnologia():
     writer = PdfWriter()
     writer.append(reader)
 
-    # pypdf mapea de forma directa las llaves del HTML (tecnologia1, tecnologia2, Alumno, etc.)
     for page in writer.pages:
         writer.update_page_form_field_values(page, data)
 
@@ -143,8 +140,6 @@ def generar_tecnologia():
 
 @app.route("/generar_autorizacion", methods=["POST"])
 def generar_autorizacion():
-    # Ojo: Requiere que hayas corregido los name="" vacíos en tu archivo autorizacion.html
-    # de acuerdo a la propuesta previa (tutor, Alumno, grado, grupo, lugarFecha, telContacto, firmaTutor)
     data = request.form.to_dict()
     output = "autorizacion_imagen_final.pdf"
     
