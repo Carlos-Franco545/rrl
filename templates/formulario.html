@@ -63,6 +63,12 @@
             box-sizing: border-box;
         }
 
+        input::placeholder,
+        textarea::placeholder{
+            color:#888;
+            font-size:14px;
+        }
+
         .radio-group{
             display:flex;
             gap:20px;
@@ -127,27 +133,28 @@
 
                 <div class="field">
                     <label for="nia">NIA *</label>
-                    <input type="number" id="nia" name="nia" required>
+                    <input type="number" id="nia" name="nia" placeholder="Ej. 20251234" required>
                 </div>
 
                 <div class="field">
                     <label for="apePatAl">Apellido Paterno *</label>
-                    <input type="text" id="apePatAl" name="apePatAl" required>
+                    <input type="text" id="apePatAl" name="apePatAl" placeholder="Ej. Hernández" required>
                 </div>
 
                 <div class="field">
                     <label for="apeMatAl">Apellido Materno *</label>
-                    <input type="text" id="apeMatAl" name="apeMatAl" required>
+                    <input type="text" id="apeMatAl" name="apeMatAl" placeholder="Ej. García" required>
                 </div>
 
                 <div class="field">
                     <label for="nombreAlu">Nombre(s) *</label>
-                    <input type="text" id="nombreAlu" name="nombreAlu" required>
+                    <input type="text" id="nombreAlu" name="nombreAlu" placeholder="Ej. Juan Carlos" required>
                 </div>
 
                 <div class="field">
                     <label for="curpAlu">CURP *</label>
-                    <input type="text" id="curpAlu" name="curpAlu" maxlength="18" required>
+                    <input type="text" id="curpAlu" name="curpAlu" maxlength="18" placeholder="Ej. HEGJ050210HVZRRNA1" required>
+                    <small>Debe contener 18 caracteres y escribirse en mayúsculas.</small>
                 </div>
 
                 <div class="field">
@@ -157,27 +164,27 @@
 
                 <div class="field">
                     <label for="paisNacAlu">País Nacimiento *</label>
-                    <input type="text" id="paisNacAlu" name="paisNacAlu" required>
+                    <input type="text" id="paisNacAlu" name="paisNacAlu" placeholder="Ej. México" required>
                 </div>
 
                 <div class="field">
                     <label for="entidadNacAlu">Entidad Nacimiento *</label>
-                    <input type="text" id="entidadNacAlu" name="entidadNacAlu" required>
+                    <input type="text" id="entidadNacAlu" name="entidadNacAlu" placeholder="Ej. Veracruz" required>
                 </div>
 
                 <div class="field">
                     <label for="discAlu">Discapacidad</label>
-                    <input type="text" id="discAlu" name="discAlu">
+                    <input type="text" id="discAlu" name="discAlu" placeholder="Ej. Ninguna / Visual / Auditiva">
                 </div>
 
                 <div class="field">
                     <label for="tipSangreAlu">Tipo de Sangre</label>
-                    <input type="text" id="tipSangreAlu" name="tipSangreAlu">
+                    <input type="text" id="tipSangreAlu" name="tipSangreAlu" placeholder="Ej. O+">
                 </div>
 
                 <div class="field">
                     <label for="lenguaMatAlu">Lengua Materna *</label>
-                    <input type="text" id="lenguaMatAlu" name="lenguaMatAlu" required>
+                    <input type="text" id="lenguaMatAlu" name="lenguaMatAlu" placeholder="Ej. Español" required>
                 </div>
             </div>
 
@@ -192,22 +199,23 @@
             <div class="grid">
                 <div class="field">
                     <label for="apePatPadre">Apellido Paterno *</label>
-                    <input type="text" id="apePatPadre" name="apePatPadre" required>
+                    <input type="text" id="apePatPadre" name="apePatPadre" placeholder="Ej. López" required>
                 </div>
 
                 <div class="field">
                     <label for="apeMatPadre">Apellido Materno *</label>
-                    <input type="text" id="apeMatPadre" name="apeMatPadre" required>
+                    <input type="text" id="apeMatPadre" name="apeMatPadre" placeholder="Ej. Martínez" required>
                 </div>
 
                 <div class="field">
                     <label for="nombrePadre">Nombre(s) *</label>
-                    <input type="text" id="nombrePadre" name="nombrePadre" required>
+                    <input type="text" id="nombrePadre" name="nombrePadre" placeholder="Ej. José Manuel" required>
                 </div>
 
                 <div class="field">
                     <label for="curpPadre">CURP *</label>
-                    <input type="text" id="curpPadre" name="curpPadre" maxlength="18" required>
+                    <input type="text" id="curpPadre" name="curpPadre" maxlength="18" placeholder="Ej. LOMJ800115HVZRRS08" required>
+                    <small>Debe contener 18 caracteres y escribirse en mayúsculas.</small>
                 </div>
 
                 <div class="field">
@@ -217,12 +225,12 @@
 
                 <div class="field">
                     <label for="paisNacPadre">País de nacimiento</label>
-                    <input type="text" id="paisNacPadre" name="paisNacPadre">
+                    <input type="text" id="paisNacPadre" name="paisNacPadre" placeholder="Ej. México">
                 </div>
 
                 <div class="field">
                     <label for="nivelEstudiosPadre">Nivel de Estudios</label>
-                    <input type="text" id="nivelEstudiosPadre" name="nivelEstudiosPadre">
+                    <input type="text" id="nivelEstudiosPadre" name="nivelEstudiosPadre" placeholder="Ej. Secundaria / Bachillerato / Licenciatura">
                 </div>
 
                 <div class="field">
@@ -243,87 +251,87 @@
 
                 <div class="field">
                     <label for="paisResPadre">País de Residencia</label>
-                    <input type="text" id="paisResPadre" name="paisResPadre">
+                    <input type="text" id="paisResPadre" name="paisResPadre" placeholder="Ej. México">
                 </div>
 
                 <div class="field">
                     <label for="entidadPadre">Entidad *</label>
-                    <input type="text" id="entidadPadre" name="entidadPadre" required>
+                    <input type="text" id="entidadPadre" name="entidadPadre" placeholder="Ej. Veracruz" required>
                 </div>
 
                 <div class="field">
                     <label for="municipioPadre">Municipio *</label>
-                    <input type="text" id="municipioPadre" name="municipioPadre" required>
+                    <input type="text" id="municipioPadre" name="municipioPadre" placeholder="Ej. Xalapa" required>
                 </div>
 
                 <div class="field">
                     <label for="locPadre">Localidad *</label>
-                    <input type="text" id="locPadre" name="locPadre" required>
+                    <input type="text" id="locPadre" name="locPadre" placeholder="Ej. Plan de Arroyos" required>
                 </div>
 
                 <div class="field">
                     <label for="cpPadre">CP *</label>
-                    <input type="text" id="cpPadre" name="cpPadre" required>
+                    <input type="text" id="cpPadre" name="cpPadre" placeholder="Ej. 93970" required>
                 </div>
 
                 <div class="field">
                     <label for="colPadre">Colonia *</label>
-                    <input type="text" id="colPadre" name="colPadre" required>
+                    <input type="text" id="colPadre" name="colPadre" placeholder="Ej. Centro" required>
                 </div>
 
                 <div class="field">
                     <label for="callePadre">Calle *</label>
-                    <input type="text" id="callePadre" name="callePadre" required>
+                    <input type="text" id="callePadre" name="callePadre" placeholder="Ej. Benito Juárez" required>
                 </div>
 
                 <div class="field">
                     <label for="numExtPadre">Num. Ext.</label>
-                    <input type="text" id="numExtPadre" name="numExtPadre">
+                    <input type="text" id="numExtPadre" name="numExtPadre" placeholder="Ej. 125">
                 </div>
 
                 <div class="field">
                     <label for="numIntPadre">Num. Int.</label>
-                    <input type="text" id="numIntPadre" name="numIntPadre">
+                    <input type="text" id="numIntPadre" name="numIntPadre" placeholder="Ej. 2B">
                 </div>
 
                 <div class="field">
                     <label for="telFijPadre">Teléfono Fijo</label>
-                    <input type="tel" id="telFijPadre" name="telFijPadre">
+                    <input type="tel" id="telFijPadre" name="telFijPadre" placeholder="Ej. 2281234567">
                 </div>
 
                 <div class="field">
                     <label for="telCelPadre">Teléfono Celular *</label>
-                    <input type="tel" id="telCelPadre" name="telCelPadre" required>
+                    <input type="tel" id="telCelPadre" name="telCelPadre" placeholder="Ej. 2289876543" required>
                 </div>
 
                 <div class="field">
                     <label for="emailPadre">Email *</label>
-                    <input type="email" id="emailPadre" name="emailPadre" required>
+                    <input type="email" id="emailPadre" name="emailPadre" placeholder="Ej. jose@gmail.com" required>
                 </div>
 
                 <div class="field">
                     <label for="ocupacionPadre">Ocupación</label>
-                    <input type="text" id="ocupacionPadre" name="ocupacionPadre">
+                    <input type="text" id="ocupacionPadre" name="ocupacionPadre" placeholder="Ej. Comerciante">
                 </div>
 
                 <div class="field">
                     <label for="horarioPadre">Horario</label>
-                    <input type="text" id="horarioPadre" name="horarioPadre">
+                    <input type="text" id="horarioPadre" name="horarioPadre" placeholder="Ej. 8:00 AM - 5:00 PM">
                 </div>
 
                 <div class="field">
                     <label for="telTraPadre">Teléfono Trabajo</label>
-                    <input type="tel" id="telTraPadre" name="telTraPadre">
+                    <input type="tel" id="telTraPadre" name="telTraPadre" placeholder="Ej. 2281112233">
                 </div>
 
                 <div class="field">
                     <label for="extPadre">Extensión</label>
-                    <input type="text" id="extPadre" name="extPadre">
+                    <input type="text" id="extPadre" name="extPadre" placeholder="Ej. 104">
                 </div>
 
                 <div class="field">
                     <label for="emailTrabPadre">Email Trabajo</label>
-                    <input type="email" id="emailTrabPadre" name="emailTrabPadre">
+                    <input type="email" id="emailTrabPadre" name="emailTrabPadre" placeholder="Ej. jose@empresa.com">
                 </div>
             </div>
 
@@ -332,22 +340,23 @@
             <div class="grid">
                 <div class="field">
                     <label for="apePatMadre">Apellido Paterno *</label>
-                    <input type="text" id="apePatMadre" name="apePatMadre" required>
+                    <input type="text" id="apePatMadre" name="apePatMadre" placeholder="Ej. Ramírez" required>
                 </div>
 
                 <div class="field">
                     <label for="apeMatMadre">Apellido Materno *</label>
-                    <input type="text" id="apeMatMadre" name="apeMatMadre" required>
+                    <input type="text" id="apeMatMadre" name="apeMatMadre" placeholder="Ej. Torres" required>
                 </div>
 
                 <div class="field">
                     <label for="nombreMadre">Nombre(s) *</label>
-                    <input type="text" id="nombreMadre" name="nombreMadre" required>
+                    <input type="text" id="nombreMadre" name="nombreMadre" placeholder="Ej. María Elena" required>
                 </div>
 
                 <div class="field">
                     <label for="curpMadre">CURP *</label>
-                    <input type="text" id="curpMadre" name="curpMadre" maxlength="18" required>
+                    <input type="text" id="curpMadre" name="curpMadre" maxlength="18" placeholder="Ej. RATE850720MVZRRL09" required>
+                    <small>Debe contener 18 caracteres y escribirse en mayúsculas.</small>
                 </div>
 
                 <div class="field">
@@ -357,12 +366,12 @@
 
                 <div class="field">
                     <label for="paisNacMadre">País de nacimiento</label>
-                    <input type="text" id="paisNacMadre" name="paisNacMadre">
+                    <input type="text" id="paisNacMadre" name="paisNacMadre" placeholder="Ej. México">
                 </div>
 
                 <div class="field">
                     <label for="nivelEstudiosMadre">Nivel de Estudios</label>
-                    <input type="text" id="nivelEstudiosMadre" name="nivelEstudiosMadre">
+                    <input type="text" id="nivelEstudiosMadre" name="nivelEstudiosMadre" placeholder="Ej. Secundaria / Bachillerato / Licenciatura">
                 </div>
 
                 <div class="field">
@@ -383,87 +392,87 @@
 
                 <div class="field">
                     <label for="paisResMadre">País de Residencia</label>
-                    <input type="text" id="paisResMadre" name="paisResMadre">
+                    <input type="text" id="paisResMadre" name="paisResMadre" placeholder="Ej. México">
                 </div>
 
                 <div class="field">
                     <label for="entidadMadre">Entidad *</label>
-                    <input type="text" id="entidadMadre" name="entidadMadre" required>
+                    <input type="text" id="entidadMadre" name="entidadMadre" placeholder="Ej. Veracruz" required>
                 </div>
 
                 <div class="field">
                     <label for="municipioMadre">Municipio *</label>
-                    <input type="text" id="municipioMadre" name="municipioMadre" required>
+                    <input type="text" id="municipioMadre" name="municipioMadre" placeholder="Ej. Xalapa" required>
                 </div>
 
                 <div class="field">
                     <label for="locMadre">Localidad *</label>
-                    <input type="text" id="locMadre" name="locMadre" required>
+                    <input type="text" id="locMadre" name="locMadre" placeholder="Ej. Plan de Arroyos" required>
                 </div>
 
                 <div class="field">
                     <label for="cpMadre">CP *</label>
-                    <input type="text" id="cpMadre" name="cpMadre" required>
+                    <input type="text" id="cpMadre" name="cpMadre" placeholder="Ej. 93970" required>
                 </div>
 
                 <div class="field">
                     <label for="colMadre">Colonia *</label>
-                    <input type="text" id="colMadre" name="colMadre" required>
+                    <input type="text" id="colMadre" name="colMadre" placeholder="Ej. Centro" required>
                 </div>
 
                 <div class="field">
                     <label for="calleMadre">Calle *</label>
-                    <input type="text" id="calleMadre" name="calleMadre" required>
+                    <input type="text" id="calleMadre" name="calleMadre" placeholder="Ej. Hidalgo" required>
                 </div>
 
                 <div class="field">
                     <label for="numExtMadre">Num. Ext.</label>
-                    <input type="text" id="numExtMadre" name="numExtMadre">
+                    <input type="text" id="numExtMadre" name="numExtMadre" placeholder="Ej. 50">
                 </div>
 
                 <div class="field">
                     <label for="numIntMadre">Num. Int.</label>
-                    <input type="text" id="numIntMadre" name="numIntMadre">
+                    <input type="text" id="numIntMadre" name="numIntMadre" placeholder="Ej. 1A">
                 </div>
 
                 <div class="field">
                     <label for="telFijMadre">Teléfono Fijo</label>
-                    <input type="tel" id="telFijMadre" name="telFijMadre">
+                    <input type="tel" id="telFijMadre" name="telFijMadre" placeholder="Ej. 2281234567">
                 </div>
 
                 <div class="field">
                     <label for="telCelMadre">Teléfono Celular *</label>
-                    <input type="tel" id="telCelMadre" name="telCelMadre" required>
+                    <input type="tel" id="telCelMadre" name="telCelMadre" placeholder="Ej. 2289876543" required>
                 </div>
 
                 <div class="field">
                     <label for="emailMadre">Email *</label>
-                    <input type="email" id="emailMadre" name="emailMadre" required>
+                    <input type="email" id="emailMadre" name="emailMadre" placeholder="Ej. maria@gmail.com" required>
                 </div>
 
                 <div class="field">
                     <label for="ocupacionMadre">Ocupación</label>
-                    <input type="text" id="ocupacionMadre" name="ocupacionMadre">
+                    <input type="text" id="ocupacionMadre" name="ocupacionMadre" placeholder="Ej. Docente">
                 </div>
 
                 <div class="field">
                     <label for="horarioMadre">Horario</label>
-                    <input type="text" id="horarioMadre" name="horarioMadre">
+                    <input type="text" id="horarioMadre" name="horarioMadre" placeholder="Ej. 7:00 AM - 3:00 PM">
                 </div>
 
                 <div class="field">
                     <label for="telTraMadre">Teléfono Trabajo</label>
-                    <input type="tel" id="telTraMadre" name="telTraMadre">
+                    <input type="tel" id="telTraMadre" name="telTraMadre" placeholder="Ej. 2281122334">
                 </div>
 
                 <div class="field">
                     <label for="extMadre">Extensión</label>
-                    <input type="text" id="extMadre" name="extMadre">
+                    <input type="text" id="extMadre" name="extMadre" placeholder="Ej. 203">
                 </div>
 
                 <div class="field">
                     <label for="emailTrabMadre">Email Trabajo</label>
-                    <input type="email" id="emailTrabMadre" name="emailTrabMadre">
+                    <input type="email" id="emailTrabMadre" name="emailTrabMadre" placeholder="Ej. maria@empresa.com">
                 </div>
             </div>
 
@@ -472,27 +481,28 @@
             <div class="grid">
                 <div class="field">
                     <label for="parentescoTutor">Parentesco *</label>
-                    <input type="text" id="parentescoTutor" name="parentescoTutor" required>
+                    <input type="text" id="parentescoTutor" name="parentescoTutor" placeholder="Ej. Abuelo / Tío / Hermano" required>
                 </div>
 
                 <div class="field">
                     <label for="apePatTutor">Apellido Paterno *</label>
-                    <input type="text" id="apePatTutor" name="apePatTutor" required>
+                    <input type="text" id="apePatTutor" name="apePatTutor" placeholder="Ej. Morales" required>
                 </div>
 
                 <div class="field">
                     <label for="apeMatTutor">Apellido Materno *</label>
-                    <input type="text" id="apeMatTutor" name="apeMatTutor" required>
+                    <input type="text" id="apeMatTutor" name="apeMatTutor" placeholder="Ej. Pérez" required>
                 </div>
 
                 <div class="field">
                     <label for="nombreTutor">Nombre *</label>
-                    <input type="text" id="nombreTutor" name="nombreTutor" required>
+                    <input type="text" id="nombreTutor" name="nombreTutor" placeholder="Ej. Luis Alberto" required>
                 </div>
 
                 <div class="field">
                     <label for="curpTutor">CURP *</label>
-                    <input type="text" id="curpTutor" name="curpTutor" maxlength="18" required>
+                    <input type="text" id="curpTutor" name="curpTutor" maxlength="18" placeholder="Ej. MOPL780412HVZRRS03" required>
+                    <small>Debe contener 18 caracteres y escribirse en mayúsculas.</small>
                 </div>
 
                 <div class="field">
@@ -502,12 +512,12 @@
 
                 <div class="field">
                     <label for="paisNacTutor">País de Nacimiento *</label>
-                    <input type="text" id="paisNacTutor" name="paisNacTutor" required>
+                    <input type="text" id="paisNacTutor" name="paisNacTutor" placeholder="Ej. México" required>
                 </div>
 
                 <div class="field">
                     <label for="nivelEstudiosTutor">Nivel de Estudios *</label>
-                    <input type="text" id="nivelEstudiosTutor" name="nivelEstudiosTutor" required>
+                    <input type="text" id="nivelEstudiosTutor" name="nivelEstudiosTutor" placeholder="Ej. Bachillerato / Licenciatura" required>
                 </div>
 
                 <div class="field">
@@ -528,87 +538,87 @@
 
                 <div class="field">
                     <label for="paisResTutor">País de Residencia *</label>
-                    <input type="text" id="paisResTutor" name="paisResTutor" required>
+                    <input type="text" id="paisResTutor" name="paisResTutor" placeholder="Ej. México" required>
                 </div>
 
                 <div class="field">
                     <label for="entidadTutor">Entidad *</label>
-                    <input type="text" id="entidadTutor" name="entidadTutor" required>
+                    <input type="text" id="entidadTutor" name="entidadTutor" placeholder="Ej. Veracruz" required>
                 </div>
 
                 <div class="field">
                     <label for="municipioTutor">Municipio *</label>
-                    <input type="text" id="municipioTutor" name="municipioTutor" required>
+                    <input type="text" id="municipioTutor" name="municipioTutor" placeholder="Ej. Xalapa" required>
                 </div>
 
                 <div class="field">
                     <label for="locTutor">Localidad *</label>
-                    <input type="text" id="locTutor" name="locTutor" required>
+                    <input type="text" id="locTutor" name="locTutor" placeholder="Ej. Plan de Arroyos" required>
                 </div>
 
                 <div class="field">
                     <label for="cpTutor">CP *</label>
-                    <input type="text" id="cpTutor" name="cpTutor" required>
+                    <input type="text" id="cpTutor" name="cpTutor" placeholder="Ej. 93970" required>
                 </div>
 
                 <div class="field">
                     <label for="colTutor">Colonia *</label>
-                    <input type="text" id="colTutor" name="colTutor" required>
+                    <input type="text" id="colTutor" name="colTutor" placeholder="Ej. Centro" required>
                 </div>
 
                 <div class="field">
                     <label for="calleTutor">Calle *</label>
-                    <input type="text" id="calleTutor" name="calleTutor" required>
+                    <input type="text" id="calleTutor" name="calleTutor" placeholder="Ej. Morelos" required>
                 </div>
 
                 <div class="field">
                     <label for="numExtTutor">Num. Ext.</label>
-                    <input type="text" id="numExtTutor" name="numExtTutor">
+                    <input type="text" id="numExtTutor" name="numExtTutor" placeholder="Ej. 80">
                 </div>
 
                 <div class="field">
                     <label for="numIntTutor">Num. Int.</label>
-                    <input type="text" id="numIntTutor" name="numIntTutor">
+                    <input type="text" id="numIntTutor" name="numIntTutor" placeholder="Ej. 3C">
                 </div>
 
                 <div class="field">
                     <label for="telFijTutor">Teléfono Fijo</label>
-                    <input type="tel" id="telFijTutor" name="telFijTutor">
+                    <input type="tel" id="telFijTutor" name="telFijTutor" placeholder="Ej. 2281234567">
                 </div>
 
                 <div class="field">
                     <label for="telCelTutor">Teléfono Celular *</label>
-                    <input type="tel" id="telCelTutor" name="telCelTutor" required>
+                    <input type="tel" id="telCelTutor" name="telCelTutor" placeholder="Ej. 2289876543" required>
                 </div>
 
                 <div class="field">
                     <label for="emailTutor">Email *</label>
-                    <input type="email" id="emailTutor" name="emailTutor" required>
+                    <input type="email" id="emailTutor" name="emailTutor" placeholder="Ej. tutor@gmail.com" required>
                 </div>
 
                 <div class="field">
                     <label for="ocupacionTutor">Ocupación</label>
-                    <input type="text" id="ocupacionTutor" name="ocupacionTutor">
+                    <input type="text" id="ocupacionTutor" name="ocupacionTutor" placeholder="Ej. Empleado / Comerciante">
                 </div>
 
                 <div class="field">
                     <label for="horarioTutor">Horario</label>
-                    <input type="text" id="horarioTutor" name="horarioTutor">
+                    <input type="text" id="horarioTutor" name="horarioTutor" placeholder="Ej. 9:00 AM - 6:00 PM">
                 </div>
 
                 <div class="field">
                     <label for="telTraTutor">Teléfono Trabajo</label>
-                    <input type="tel" id="telTraTutor" name="telTraTutor">
+                    <input type="tel" id="telTraTutor" name="telTraTutor" placeholder="Ej. 2281102200">
                 </div>
 
                 <div class="field">
                     <label for="extTutor">Extensión</label>
-                    <input type="text" id="extTutor" name="extTutor">
+                    <input type="text" id="extTutor" name="extTutor" placeholder="Ej. 101">
                 </div>
 
                 <div class="field">
                     <label for="emailTrabTutor">Email Trabajo</label>
-                    <input type="email" id="emailTrabTutor" name="emailTrabTutor">
+                    <input type="email" id="emailTrabTutor" name="emailTrabTutor" placeholder="Ej. tutor@empresa.com">
                 </div>
             </div>
 
@@ -617,23 +627,23 @@
             <div class="grid">
                 <div class="field">
                     <label for="entidadFedReg">Entidad Federal Registro *</label>
-                    <input type="text" id="entidadFedReg" name="entidadFedReg" required>
+                    <input type="text" id="entidadFedReg" name="entidadFedReg" placeholder="Ej. Veracruz" required>
                 </div>
 
                 <div class="field">
                     <label for="municipioReg">Municipio Registro *</label>
-                    <input type="text" id="municipioReg" name="municipioReg" required>
+                    <input type="text" id="municipioReg" name="municipioReg" placeholder="Ej. Xalapa" required>
                 </div>
 
                 <div class="field">
                     <label for="anioReg">Año Registro *</label>
-                    <input type="number" id="anioReg" name="anioReg" required>
+                    <input type="number" id="anioReg" name="anioReg" placeholder="Ej. 2012" required>
                 </div>
             </div>
 
             <div class="field">
                 <label for="observaciones1">Observaciones</label>
-                <textarea id="observaciones1" name="observaciones1" rows="4"></textarea>
+                <textarea id="observaciones1" name="observaciones1" rows="4" placeholder="Ej. El alumno presenta alergia al polvo / Vive con sus abuelos / Requiere atención especial"></textarea>
             </div>
 
             <!-- ESCUELA -->
@@ -656,12 +666,12 @@
 
                 <div class="field">
                     <label for="dGrado">Grado *</label>
-                    <input type="text" id="dGrado" name="dGrado" required>
+                    <input type="text" id="dGrado" name="dGrado" placeholder="Ej. 1" required>
                 </div>
 
                 <div class="field">
                     <label for="dGrupo">Grupo *</label>
-                    <input type="text" id="dGrupo" name="dGrupo" required>
+                    <input type="text" id="dGrupo" name="dGrupo" placeholder="Ej. A" required>
                 </div>
 
                 <div class="field">
