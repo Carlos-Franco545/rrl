@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ficha de inscripción</title>
+<title>Ficha de Inscripción</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
 body{
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg,#5f6c7b,#3e4c59);
@@ -14,7 +18,7 @@ body{
 }
 
 .container{
-    max-width: 1300px;
+    max-width:1300px;
     margin:auto;
     background:white;
     border-radius:15px;
@@ -24,7 +28,13 @@ body{
 
 h1{
     color:white;
+    margin:0 0 10px 20px;
+}
+
+.note{
+    color:white;
     margin-left:20px;
+    margin-bottom:20px;
 }
 
 /* SECCIONES */
@@ -34,7 +44,7 @@ h1{
     padding:10px 20px;
     border-radius:25px;
     display:inline-block;
-    margin:25px 0 10px 0;
+    margin:25px 0 15px 0;
     font-weight:bold;
 }
 
@@ -55,25 +65,68 @@ label{
     font-weight:bold;
     color:#4a5d73;
     margin-top:10px;
+    margin-bottom:5px;
 }
 
-input{
+input, select, textarea{
     width:100%;
-    padding:10px;
+    padding:10px 12px;
     border-radius:20px;
     border:1px solid #ccc;
-    margin-top:5px;
+    outline:none;
+    transition:.2s;
+    font-size:14px;
 }
 
-/* RADIOS */
+input:focus, select:focus, textarea:focus{
+    border-color:#4a5d73;
+    box-shadow:0 0 0 3px rgba(74,93,115,.15);
+}
+
+/* FIELDSET PARA PREGUNTAS */
+.question{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #d7dde3;
+    border-radius:15px;
+    background:#f8fafc;
+}
+
+.question legend{
+    font-weight:bold;
+    color:#4a5d73;
+    padding:0 8px;
+}
+
 .radio-group{
     display:flex;
     flex-wrap:wrap;
-    gap:20px;
+    gap:15px 25px;
     margin-top:10px;
 }
 
-/* BOTON */
+.radio-group label{
+    font-weight:normal;
+    color:#333;
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.radio-group input[type="radio"]{
+    width:auto;
+    margin:0;
+}
+
+/* TEXTAREA */
+textarea{
+    resize:vertical;
+    min-height:90px;
+    border-radius:15px;
+}
+
+/* BOTÓN */
 button{
     background:#4a5d73;
     color:white;
@@ -83,277 +136,558 @@ button{
     width:100%;
     font-size:16px;
     cursor:pointer;
-    margin-top:20px;
+    margin-top:30px;
+    transition:.2s;
 }
 
 button:hover{
     background:#2f3e4d;
 }
 
-.note{
-    color:white;
-    margin-left:20px;
+small{
+    color:#666;
+    margin-top:4px;
+    display:block;
+}
+
+.required{
+    color:#d32f2f;
+}
+
+@media (max-width:768px){
+    .container{
+        padding:20px;
+    }
+
+    h1, .note{
+        margin-left:0;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Ficha de Inscripción de Alumnos (as)</h1>
-<p class="note">Campos obligatorios *</p>
+<h1>Ficha de Inscripción de Alumnos(as)</h1>
+<p class="note">Los campos marcados con <span class="required">*</span> son obligatorios.</p>
 
 <div class="container">
-
 <form action="/generar" method="POST">
 
-<!-- DATOS PERSONALES -->
-<div class="section-title">Datos Personales</div>
+    <!-- DATOS PERSONALES -->
+    <div class="section-title">Datos Personales</div>
 
-<div class="grid">
+    <div class="grid">
+        <div class="field">
+            <label for="Alumno">Nombre del Alumno(a) <span class="required">*</span></label>
+            <input type="text" id="Alumno" name="Alumno" placeholder="Ej. Juan Pérez López" required>
+        </div>
 
-<div class="field"><label>Nombre del Alumno *</label><input type="text" name="Alumno" placeholder="Nombre completo"required></div>
-<div class="field"><label>CURP  del Alumno *</label><input type="text" name="curpAlu" placeholder="CURP del alumno"maxlength="18" required></div>
-<div class="field"><label>Grado al que se Inscribe *</label><input type="number" name="grado" placeholder="Grado" maxlength="1" required></div>
-<div class="field"><label>Grupo Asignado *</label><input type="text" name="grupo" placeholder="Grupo" maxlength="1" required></div>
-<div class="field"><label>Municipio de Procedencia *</label><input type="text" name="municipio" placeholder="Municipio" required></div>
-<div class="field"><label>Años cumplidos *</label><input type="text" name="anoscum" placeholder="Años cumplidos" maxlength="2" required></div>
+        <div class="field">
+            <label for="curpAlu">CURP del Alumno(a) <span class="required">*</span></label>
+            <input type="text" id="curpAlu" name="curpAlu" placeholder="Ej. PELJ120305HPLRNSA1" maxlength="18" required>
+        </div>
 
-<div class="field"><label>Nombre de la Madre, Padre o Tutor *</label><input type="text" name="tutor"placeholder="Nombre del tutor" required></div>
-<div class="field"><label>CURP de la Madre, Padre o Tutor *</label><input type="text" name="curpTut" placeholder="CURP del tutor" maxlength="18" required></div>
+        <div class="field">
+            <label for="grado">Grado al que se inscribe <span class="required">*</span></label>
+            <input type="number" id="grado" name="grado" placeholder="Ej. 1" min="1" max="6" required>
+        </div>
 
-<div class="field"><label>Ocupación de la Madre, Padre o Tutor*</label><input type="text" name="ocupa" placeholder="Ocupación del tutor" required></div>
-<div class="field"><label>Horario *</label><input type="text" name="hora" placeholder="Horario de trabajo" required></div>
-<div class="field"><label>Escolaridad Maxima de la Madre, Padre o Tutor*</label><input type="text" name="escM" placeholder="Escolaridad máxima del tutor" required></div>
-<div class="field"><label>Domicilio de la Madre, Padre o Tutor</label><input type="text" name="direc" placeholder="Domicilio del tutor"></div>
+        <div class="field">
+            <label for="grupo">Grupo asignado <span class="required">*</span></label>
+            <input type="text" id="grupo" name="grupo" placeholder="Ej. A" maxlength="2" required>
+        </div>
 
-<div class="field"><label>Domicilio del Alumno (a) *</label><input type="text" name="doma" required></div>
-<div class="field"><label>Entre Calle</label><input type="text" name="calle"></div>
-<div class="field"><label>Y Calle</label><input type="text" name="calley"></div>
-<div class="field"><label>Municipio *</label><input type="text" name="munic" required></div>
+        <div class="field">
+            <label for="municipioProcedencia">Municipio de procedencia <span class="required">*</span></label>
+            <input type="text" id="municipioProcedencia" name="municipio" placeholder="Ej. Teziutlán" required>
+        </div>
 
-<div class="field"><label>Teléfono Casa</label><input type="tel" name="telefonoCasa"></div>
-<div class="field"><label>Celular 1 *</label><input type="tel" name="cel1" required></div>
-<div class="field"><label>Celular 2</label><input type="tel" name="cel2"></div>
-<div class="field"><label>Celular para Agregar al Grupo de Whatsapp de Padre de Familia *</label><input type="tel" name="celWhatsapp" required></div>
+        <div class="field">
+            <label for="anoscum">Años cumplidos <span class="required">*</span></label>
+            <input type="number" id="anoscum" name="anoscum" placeholder="Ej. 12" min="1" max="99" required>
+        </div>
 
-</div>
+        <div class="field">
+            <label for="tutor">Nombre de la madre, padre o tutor <span class="required">*</span></label>
+            <input type="text" id="tutor" name="tutor" placeholder="Ej. María López García" required>
+        </div>
 
-<label>¿Cuenta su hijo(a) con Algun Tipo de Beca? *</label>
-<div class="radio-group">
-<label><input type="radio" name="beca" value="si"> SI</label>
-<label><input type="radio" name="beca" value="no"> NO</label>
-</div>
+        <div class="field">
+            <label for="curpTut">CURP de la madre, padre o tutor <span class="required">*</span></label>
+            <input type="text" id="curpTut" name="curpTut" placeholder="Ej. LOGM850425MPLPRS09" maxlength="18" required>
+        </div>
+    </div>
 
-<div class="field"><label>¿Cuál?</label><input type="text" name="cualBe"></div>
+    <fieldset class="question">
+        <legend>Parentesco con el alumno(a) <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="parentesco" value="Madre" required> Madre</label>
+            <label><input type="radio" name="parentesco" value="Padre"> Padre</label>
+            <label><input type="radio" name="parentesco" value="Tutor"> Tutor</label>
+        </div>
+    </fieldset>
 
-<label>¿Ambos padres viven? *</label>
-<div class="radio-group">
-<label><input type="radio" name="padresViven" value="si"> SI</label>
-<label><input type="radio" name="padresViven" value="no"> NO</label>
-</div>
+    <div class="grid">
+        <div class="field">
+            <label for="ocupa">Ocupación de la madre, padre o tutor <span class="required">*</span></label>
+            <input type="text" id="ocupa" name="ocupa" placeholder="Ej. Comerciante, docente, ama de casa..." required>
+        </div>
 
-<label>¿Los Padres Viven Separados? *</label>
-<div class="radio-group">
-<label><input type="radio" name="separados" value="si"> SI</label>
-<label><input type="radio" name="separados" value="no"> NO</label>
-</div>
+        <div class="field">
+            <label for="hora">Horario de trabajo <span class="required">*</span></label>
+            <input type="text" id="hora" name="hora" placeholder="Ej. 8:00 a.m. a 4:00 p.m." required>
+        </div>
 
-<div class="field"><label>En caso de ser Afirmativo ¿Con quién vive?</label><input type="text" name="vive"></div>
+        <div class="field">
+            <label for="escM">Escolaridad máxima de la madre, padre o tutor <span class="required">*</span></label>
+            <input type="text" id="escM" name="escM" placeholder="Ej. Secundaria, bachillerato, licenciatura..." required>
+        </div>
 
-<label>¿Habla lengua indígena? *</label>
-<div class="radio-group">
-<label><input type="radio" name="lengua" value="si"> SI</label>
-<label><input type="radio" name="lengua" value="no"> NO</label>
-</div>
+        <div class="field">
+            <label for="direc">Domicilio de la madre, padre o tutor</label>
+            <input type="text" id="direc" name="direc" placeholder="Ej. Calle, número, colonia">
+        </div>
 
-<div class="field"><label>¿Cuál?</label><input type="text" name="cuall"></div>
+        <div class="field">
+            <label for="doma">Domicilio del alumno(a) <span class="required">*</span></label>
+            <input type="text" id="doma" name="doma" placeholder="Ej. Calle Hidalgo #15, Col. Centro" required>
+        </div>
 
-<!-- DATOS MEDICOS -->
-<div class="section-title">Datos Médicos</div>
+        <div class="field">
+            <label for="calle">Entre calle</label>
+            <input type="text" id="calle" name="calle" placeholder="Ej. Juárez">
+        </div>
 
-<div class="grid">
-<div class="field"><label>Enfermedades en infancia *</label><input type="text" name="enfInf" required></div>
+        <div class="field">
+            <label for="calley">Y calle</label>
+            <input type="text" id="calley" name="calley" placeholder="Ej. Morelos">
+        </div>
 
-<div class="field"><label>Grupo Sanguíneo *</label><input type="text" name="sang" required></div>
-<div class="field"><label>Enfermedades Que Padesca El Alumno(a) *</label><input type="text" name="enf" required></div>
-<div class="field"><label>Intervenciones quirúrgicas *</label><input type="text" name="int" required></div>
-<div class="field"><label>¿Cuál?</label><input type="text" name="cualMedico"></div>
-<div class="field"><label>¿Sufre Alguna Enfermedad Cronica? *</label><input type="text" name="cro" required></div>
-<div class="field"><label>¿Cuál?</label><input type="text" name="cualSufre"></div>
-<div class="field"><label>Alergias</label><input type="text" name="alergia"></div>
-</div>
+        <div class="field">
+            <label for="munic">Municipio <span class="required">*</span></label>
+            <input type="text" id="munic" name="munic" placeholder="Ej. Teziutlán" required>
+        </div>
 
-<label>¿Toma Algun medicamento Permanente? *</label>
-<div class="radio-group">
-<label><input type="radio" name="medicamento" value="si"> SI</label>
-<label><input type="radio" name="medicamento" value="no"> NO</label>
-</div>
-<div class="field"><label>¿Cuál?</label><input type="text" name="cualT"></div>
+        <div class="field">
+            <label for="telefonoCasa">Teléfono de casa</label>
+            <input type="tel" id="telefonoCasa" name="telefonoCasa" placeholder="Ej. 2311234567" pattern="[0-9]{10}">
+            <small>Ingresa 10 dígitos.</small>
+        </div>
 
-<label>¿Presente Alguna Enfermedad Cardiaca o Renal? *</label>
-<div class="radio-group">
-<label><input type="radio" name="cardiaca" value="si"> SI</label>
-<label><input type="radio" name="cardiaca" value="no"> NO</label>
-</div>
-<div class="field"><label>¿Cuál?</label><input type="text" name="cualEnf"></div>
+        <div class="field">
+            <label for="cel1">Celular 1 <span class="required">*</span></label>
+            <input type="tel" id="cel1" name="cel1" placeholder="Ej. 2311234567" pattern="[0-9]{10}" required>
+        </div>
 
-<label>¿Padece ASMA? *</label>
-<div class="radio-group">
-<label><input type="radio" name="asma" value="si"> SI</label>
-<label><input type="radio" name="asma" value="no"> NO</label>
-</div>
+        <div class="field">
+            <label for="cel2">Celular 2</label>
+            <input type="tel" id="cel2" name="cel2" placeholder="Ej. 2311234567" pattern="[0-9]{10}">
+        </div>
 
-<label>¿Sufre Epilepsias o Convulsione? *</label>
-<div class="radio-group">
-<label><input type="radio" name="api" value="si"> SI</label>
-<label><input type="radio" name="api" value="no"> NO</label>
-</div>
+        <div class="field">
+            <label for="celWhatsapp">Celular para agregar al grupo de WhatsApp <span class="required">*</span></label>
+            <input type="tel" id="celWhatsapp" name="celWhatsapp" placeholder="Ej. 2311234567" pattern="[0-9]{10}" required>
+        </div>
+    </div>
 
-<label>¿Padece Alguna Discapacidad? *</label>
-<div class="radio-group">
-<label><input type="radio" name="dis" value="si"> SI</label>
-<label><input type="radio" name="dis" value="no"> NO</label>
-</div>
+    <fieldset class="question">
+        <legend>¿Cuenta su hijo(a) con algún tipo de beca? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="beca" value="Sí" required> Sí</label>
+            <label><input type="radio" name="beca" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="cualBe">¿Cuál?</label>
+            <input type="text" id="cualBe" name="cualBe" placeholder="Ej. Benito Juárez">
+        </div>
+    </fieldset>
 
-<label>¿Cuando Se Enferma Asiste A? *</label>
-<div class="radio-group">
-<label><input type="radio" name="AsisA" value="si"> SI</label>
-<label><input type="radio" name="AsisA" value="no"> NO</label>
-</div>
+    <fieldset class="question">
+        <legend>¿Ambos padres viven? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="padresViven" value="Sí" required> Sí</label>
+            <label><input type="radio" name="padresViven" value="No"> No</label>
+        </div>
+    </fieldset>
 
-<!-- ACADEMICO -->
-<div class="section-title">Datos Académicos</div>
+    <fieldset class="question">
+        <legend>¿Los padres viven separados? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="separados" value="Sí" required> Sí</label>
+            <label><input type="radio" name="separados" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="vive">En caso afirmativo, ¿con quién vive?</label>
+            <input type="text" id="vive" name="vive" placeholder="Ej. Con su madre">
+        </div>
+    </fieldset>
 
-<div class="grid">
-<div class="field"><label>Promedio Final del Grado Anteriol*</label><input type="number" name="prom" required></div>
-<div class="field"><label>¿Repitió Algun Grado? *</label><input type="text" name="repG" required></div>
-<div class="field"><label>Materias Con Las Que Presente Dificultades</label><input type="text" name="dificul"></div>
-<div class="field"><label>Escuela Primaria de Procedencia *</label><input type="text" name="escuela" required></div>
-</div>
+    <fieldset class="question">
+        <legend>¿Habla lengua indígena? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="lengua" value="Sí" required> Sí</label>
+            <label><input type="radio" name="lengua" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="cuall">¿Cuál?</label>
+            <input type="text" id="cuall" name="cuall" placeholder="Ej. Náhuatl, Totonaco...">
+        </div>
+    </fieldset>
 
-<label>¿Tiene computadora? *</label>
-<div class="radio-group">
-<label><input type="radio" name="compu" value="si"> SI</label>
-<label><input type="radio" name="compu" value="no"> NO</label>
-</div>
+    <!-- DATOS MÉDICOS -->
+    <div class="section-title">Datos Médicos</div>
 
-<label>¿Tiene internet? *</label>
-<div class="radio-group">
-<label><input type="radio" name="internet" value="si"> SI</label>
-<label><input type="radio" name="internet" value="no"> NO</label>
-</div>
+    <div class="grid">
+        <div class="field">
+            <label for="enfInf">Principales enfermedades de la infancia <span class="required">*</span></label>
+            <input type="text" id="enfInf" name="enfInf" placeholder="Ej. Varicela, sarampión..." required>
+        </div>
 
-<label>Durante la Primaria ¿Tuvo Apoyo De Educasion Especias? *</label>
-<div class="radio-group">
-<label><input type="radio" name="EduEs" value="si"> SI</label>
-<label><input type="radio" name="EduEs" value="no"> NO</label>
-</div>
-<div class="field"><label>Motivo</label><input type="text" name="moviEs"></div>
+        <div class="field">
+            <label for="sang">Grupo sanguíneo <span class="required">*</span></label>
+            <input type="text" id="sang" name="sang" placeholder="Ej. O+, A-, B+" required>
+        </div>
 
-<!-- OTROS -->
-<div class="section-title">Otros</div>
+        <div class="field">
+            <label for="enf">Enfermedades que padece el alumno(a) <span class="required">*</span></label>
+            <input type="text" id="enf" name="enf" placeholder="Ej. Ninguna / asma / gastritis..." required>
+        </div>
 
-<div class="radio-group"></div>
-<label>Su Hijo ¿Tiene un Empleo Por Las Tardes o Fines De Semana? *</label>
-<div class="radio-group">
-<label><input type="radio" name="trab" value="si"> SI</label>
-<label><input type="radio" name="trab" value="no"> NO</label>
-</div>
-<div class="field"><label>Describalo</label><input type="text" name="desTrab"></div>
+        <div class="field">
+            <label for="int">Intervenciones quirúrgicas <span class="required">*</span></label>
+            <input type="text" id="int" name="int" placeholder="Ej. Ninguna / apendicitis..." required>
+        </div>
 
+        <div class="field">
+            <label for="cualMedico">¿Cuál?</label>
+            <input type="text" id="cualMedico" name="cualMedico" placeholder="Describe la intervención o enfermedad">
+        </div>
 
-<div class="grid">
-<div class="field"><label>Personas que viven con el Alumno(a) *</label><input type="number" name="viveCon" required></div>
-</div>
+        <div class="field">
+            <label for="cro">¿Sufre alguna enfermedad crónica? <span class="required">*</span></label>
+            <input type="text" id="cro" name="cro" placeholder="Ej. No / Sí, diabetes..." required>
+        </div>
 
-<!-- TRASLADO -->
-<div class="section-title">Desplazamiento a La Escuela</div>
+        <div class="field">
+            <label for="cualSufre">¿Cuál?</label>
+            <input type="text" id="cualSufre" name="cualSufre" placeholder="Especifique si aplica">
+        </div>
 
-<div class="field">
-<label>Cuanto Tiempo Tarda en Llegar de su Casa a La Escuela *</label>
-<input type="text" name="tiempo" required>
-</div>
+        <div class="field">
+            <label for="alergia">Alergias</label>
+            <input type="text" id="alergia" name="alergia" placeholder="Ej. Penicilina, polvo, mariscos...">
+        </div>
+    </div>
 
-<div class="radio-group"></div>
-<label>Lo Hace *</label>
-<div class="radio-group">
-<label><input type="radio" name="loHace" value="Caminando"> Caminando</label>
-<label><input type="radio" name="loHace" value="Transporte"> Transporte</label>
-</div>
-<label>¿Cual? *</label> 
-<div class="radio-group">
-<label><input type="radio" name="TransporteTip" value="Caminando"> Combi</label>
-<label><input type="radio" name="TransporteTip" value="Transporte"> Carro Particular</label>
-<label><input type="radio" name="TransporteTip" value="Taxi Especial"> Taxi Especial</label>
-<label><input type="radio" name="TransporteTip" value="Bicicleta"> Bicicleta</label>
-<label><input type="radio" name="TransporteTip" value="Otro"> Otro</label>
-</div>
-<div class="field"><label>Otro ¿Cual?</label><input type="text" name="cualTip"></div>
+    <fieldset class="question">
+        <legend>¿Toma algún medicamento permanente? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="medicamento" value="Sí" required> Sí</label>
+            <label><input type="radio" name="medicamento" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="cualT">¿Cuál?</label>
+            <input type="text" id="cualT" name="cualT" placeholder="Nombre del medicamento">
+        </div>
+    </fieldset>
 
-<!-- OTROS ASPECTOS  -->
-<div class="section-title">Otros Aspectos</div>
+    <fieldset class="question">
+        <legend>¿Presenta alguna enfermedad cardiaca o renal? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="cardiaca" value="Sí" required> Sí</label>
+            <label><input type="radio" name="cardiaca" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="cualEnf">¿Cuál?</label>
+            <input type="text" id="cualEnf" name="cualEnf" placeholder="Especifique si aplica">
+        </div>
+    </fieldset>
 
-<div class="grid">
-<div class="field"><label>Enfermedades manifestadas en la piel*</label><input type="number" name="pielEnf" required></div>
-<div class="field"><label>Es alergico a algun medicamento y/o alimento*</label><input type="text" name="aleMe" required></div>
-<div class="field"><label>Usa algun aparato auditivo o tiene problemas para escuchar bien*</label><input type="text" name="audio" required></div>
-<div class="field"><label>Usa lentes o tiene problemas para ver bien*</label><input type="text" name="lentes" required></div>
-<div class="field"><label>Presenta pie plano</label><input type="text" name="pie" ></div>
-<div class="field"><label>Presenta algun problema de columna*</label><input type="text" name="columna" required></div>
-<div class="field"><label>Presenta algun problema de riñon a vejiga*</label><input type="text" name="rinon" required></div>
-<div class="field"><label>Presenta obecidad, desnutricion, diabetes, otras*</label><input type="text" name="desnutri" required></div>
-</div>
-<div class="field"><label>Alguna recomendacion extra, que considere que debamos saber</label><input type="text" name="recomendacion" ></div>
+    <fieldset class="question">
+        <legend>¿Padece asma? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="asma" value="Sí" required> Sí</label>
+            <label><input type="radio" name="asma" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="tipoAsma">¿Qué tipo?</label>
+            <input type="text" id="tipoAsma" name="tipoAsma" placeholder="Ej. Leve, moderada...">
+        </div>
+    </fieldset>
 
-<div class="radio-group"></div>
-<label>Es Zurdo *</label>
-<div class="radio-group">
-<label><input type="radio" name="zurdo" value="si"> SI</label>
-<label><input type="radio" name="zurdo" value="no"> NO</label>
-</div>
+    <fieldset class="question">
+        <legend>¿Sufre epilepsia o convulsiones? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="epilepsia" value="Sí" required> Sí</label>
+            <label><input type="radio" name="epilepsia" value="No"> No</label>
+        </div>
+    </fieldset>
 
-<div class="radio-group"></div>
-<label>¿Necesita butaca Zurda? *</label>
-<div class="radio-group">
-<label><input type="radio" name="netZur" value="si"> SI</label>
-<label><input type="radio" name="netZur" value="no"> NO</label>
-</div>
+    <fieldset class="question">
+        <legend>¿Padece alguna discapacidad?</legend>
+        <div class="radio-group">
+            <label><input type="radio" name="discapacidad" value="Visual"> Visual</label>
+            <label><input type="radio" name="discapacidad" value="Auditiva"> Auditiva</label>
+            <label><input type="radio" name="discapacidad" value="Motriz"> Motriz</label>
+            <label><input type="radio" name="discapacidad" value="Intelectual"> Intelectual</label>
+            <label><input type="radio" name="discapacidad" value="Ninguna"> Ninguna</label>
+        </div>
+    </fieldset>
 
-<div class="radio-group"></div>
-<label>¿Asiste o ha asistido a apoyo psicologico? *</label>
-<div class="radio-group">
-<label><input type="radio" name="psico" value="Caminando"> Si</label>
-<label><input type="radio" name="psico" value="Transporte"> No</label>
-</div>
-<div class="field"><label>Razon</label><input type="text" name="razonPsi"></div>
+    <fieldset class="question">
+        <legend>Cuando se enferma, asiste a <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="asistenciaMedica" value="IMSS" required> IMSS</label>
+            <label><input type="radio" name="asistenciaMedica" value="ISSSTE"> ISSSTE</label>
+            <label><input type="radio" name="asistenciaMedica" value="ISSSTEP"> ISSSTEP</label>
+            <label><input type="radio" name="asistenciaMedica" value="INSABI"> INSABI</label>
+            <label><input type="radio" name="asistenciaMedica" value="Otro"> Otro</label>
+        </div>
+        <div class="field">
+            <label for="tipoAsis">¿Cuál?</label>
+            <input type="text" id="tipoAsis" name="tipoAsis" placeholder="Especifique si eligió 'Otro'">
+        </div>
+    </fieldset>
 
-<div class="radio-group"></div>
-<label>El alumno presenta algun sindrome o espectro *</label>
-<div class="radio-group">
-<label><input type="radio" name="sindorme" value="Caminando"> Si</label>
-<label><input type="radio" name="sindorme" value="Transporte"> No</label>
-</div>
-<div class="field"><label>En caso afirmativo ¿Cual?</label><input type="text" name="casoSin"></div>
+    <!-- DATOS ACADÉMICOS -->
+    <div class="section-title">Datos Académicos</div>
 
-<div class="field"><label>Anote cualquier observacion a tener en cuenta por los docentes, en el desarrollo de sus clases</label><input type="text" name="observacion" ></div>
+    <div class="grid">
+        <div class="field">
+            <label for="prom">Promedio final del grado anterior <span class="required">*</span></label>
+            <input type="number" id="prom" name="prom" placeholder="Ej. 9.5" min="0" max="10" step="0.1" required>
+        </div>
 
-<!-- Talla y peso  -->
-<div class="section-title">Talla y peso</div>
+        <div class="field">
+            <label for="repG">¿Repitió algún grado? <span class="required">*</span></label>
+            <input type="text" id="repG" name="repG" placeholder="Ej. No / Sí, 2° grado" required>
+        </div>
 
-<div class="grid">
-<div class="field"><label>Estatura*</label><input type="number" name="estatura" required></div>
-<div class="field"><label>Peso*</label><input type="text" name="peso" required></div>
-<div class="field"><label>Talla de camisa o blusa*</label><input type="text" name="tallC" required></div>
-<div class="field"><label>Talla de pantalon o falda*</label><input type="text" name="tallP" required></div>
-<div class="field"><label>Talla de zapatos*</label><input type="text" name="tallaZ" required></div>
+        <div class="field">
+            <label for="dificul">Materias con las que presenta o presentó dificultades</label>
+            <input type="text" id="dificul" name="dificul" placeholder="Ej. Matemáticas, inglés...">
+        </div>
 
-</div>
-<div class="field"><label>Nombre del padre o tutor</label><input type="text" name="nobreT" ></div>
+        <div class="field">
+            <label for="escuela">Escuela primaria de procedencia <span class="required">*</span></label>
+            <input type="text" id="escuela" name="escuela" placeholder="Nombre de la escuela primaria" required>
+        </div>
+    </div>
 
-<button type="submit">Enviar Registro</button>
+    <fieldset class="question">
+        <legend>¿Tiene computadora? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="compu" value="Sí" required> Sí</label>
+            <label><input type="radio" name="compu" value="No"> No</label>
+        </div>
+    </fieldset>
 
+    <fieldset class="question">
+        <legend>¿Tiene internet? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="internet" value="Sí" required> Sí</label>
+            <label><input type="radio" name="internet" value="No"> No</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="question">
+        <legend>Durante la primaria, ¿tuvo apoyo de educación especial? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="EduEs" value="Sí" required> Sí</label>
+            <label><input type="radio" name="EduEs" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="moviEs">Motivo</label>
+            <input type="text" id="moviEs" name="moviEs" placeholder="Explique si aplica">
+        </div>
+    </fieldset>
+
+    <!-- OTROS -->
+    <div class="section-title">Otros</div>
+
+    <fieldset class="question">
+        <legend>¿Su hijo(a) tiene un empleo por las tardes o fines de semana? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="trab" value="Sí" required> Sí</label>
+            <label><input type="radio" name="trab" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="desTrab">Descríbalo</label>
+            <input type="text" id="desTrab" name="desTrab" placeholder="Ej. Ayuda en negocio familiar">
+        </div>
+    </fieldset>
+
+    <div class="grid">
+        <div class="field">
+            <label for="viveCon">Número de personas que viven con el alumno(a) <span class="required">*</span></label>
+            <input type="number" id="viveCon" name="viveCon" placeholder="Ej. 5" min="1" required>
+        </div>
+    </div>
+
+    <!-- DESPLAZAMIENTO -->
+    <div class="section-title">Desplazamiento a la Escuela</div>
+
+    <div class="field">
+        <label for="tiempo">¿Cuánto tiempo tarda en llegar de su casa a la escuela? <span class="required">*</span></label>
+        <input type="text" id="tiempo" name="tiempo" placeholder="Ej. 20 minutos" required>
+    </div>
+
+    <fieldset class="question">
+        <legend>Lo hace <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="loHace" value="Caminando" required> Caminando</label>
+            <label><input type="radio" name="loHace" value="Transporte"> Transporte</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="question">
+        <legend>¿Cuál transporte utiliza?</legend>
+        <div class="radio-group">
+            <label><input type="radio" name="TransporteTip" value="Combi"> Combi</label>
+            <label><input type="radio" name="TransporteTip" value="Carro Particular"> Carro Particular</label>
+            <label><input type="radio" name="TransporteTip" value="Taxi Especial"> Taxi Especial</label>
+            <label><input type="radio" name="TransporteTip" value="Bicicleta"> Bicicleta</label>
+            <label><input type="radio" name="TransporteTip" value="Otro"> Otro</label>
+        </div>
+        <div class="field">
+            <label for="cualTip">Otro, ¿cuál?</label>
+            <input type="text" id="cualTip" name="cualTip" placeholder="Especifique si eligió 'Otro'">
+        </div>
+    </fieldset>
+
+    <!-- OTROS ASPECTOS -->
+    <div class="section-title">Otros Aspectos</div>
+
+    <div class="grid">
+        <div class="field">
+            <label for="pielEnf">Enfermedades manifestadas en la piel <span class="required">*</span></label>
+            <input type="text" id="pielEnf" name="pielEnf" placeholder="Ej. Dermatitis, ninguna..." required>
+        </div>
+
+        <div class="field">
+            <label for="aleMe">¿Es alérgico a algún medicamento y/o alimento? <span class="required">*</span></label>
+            <input type="text" id="aleMe" name="aleMe" placeholder="Ej. Penicilina, nuez, mariscos..." required>
+        </div>
+
+        <div class="field">
+            <label for="audio">¿Usa algún aparato auditivo o tiene problemas para escuchar bien? <span class="required">*</span></label>
+            <input type="text" id="audio" name="audio" placeholder="Ej. No / Sí, auxiliar auditivo" required>
+        </div>
+
+        <div class="field">
+            <label for="lentes">¿Usa lentes o tiene problemas para ver bien? <span class="required">*</span></label>
+            <input type="text" id="lentes" name="lentes" placeholder="Ej. Sí, lentes graduados / No" required>
+        </div>
+
+        <div class="field">
+            <label for="pie">¿Presenta pie plano?</label>
+            <input type="text" id="pie" name="pie" placeholder="Ej. Sí / No">
+        </div>
+
+        <div class="field">
+            <label for="columna">¿Presenta algún problema de columna? <span class="required">*</span></label>
+            <input type="text" id="columna" name="columna" placeholder="Ej. No / escoliosis..." required>
+        </div>
+
+        <div class="field">
+            <label for="rinon">¿Presenta algún problema de riñón o vejiga? <span class="required">*</span></label>
+            <input type="text" id="rinon" name="rinon" placeholder="Ej. No / infección recurrente..." required>
+        </div>
+
+        <div class="field">
+            <label for="desnutri">¿Presenta obesidad, desnutrición, diabetes u otra condición? <span class="required">*</span></label>
+            <input type="text" id="desnutri" name="desnutri" placeholder="Ej. No / diabetes..." required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="recomendacion">Alguna recomendación extra que considere que debamos saber</label>
+        <textarea id="recomendacion" name="recomendacion" placeholder="Escriba aquí información importante sobre el alumno(a)"></textarea>
+    </div>
+
+    <fieldset class="question">
+        <legend>¿Es zurdo(a)? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="zurdo" value="Sí" required> Sí</label>
+            <label><input type="radio" name="zurdo" value="No"> No</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="question">
+        <legend>¿Necesita butaca zurda? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="netZur" value="Sí" required> Sí</label>
+            <label><input type="radio" name="netZur" value="No"> No</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="question">
+        <legend>¿Asiste o ha asistido a apoyo psicológico? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="psico" value="Sí" required> Sí</label>
+            <label><input type="radio" name="psico" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="razonPsi">Razón</label>
+            <input type="text" id="razonPsi" name="razonPsi" placeholder="Explique si aplica">
+        </div>
+    </fieldset>
+
+    <fieldset class="question">
+        <legend>¿El alumno presenta algún síndrome o espectro? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="sindrome" value="Sí" required> Sí</label>
+            <label><input type="radio" name="sindrome" value="No"> No</label>
+        </div>
+        <div class="field">
+            <label for="casoSin">En caso afirmativo, ¿cuál?</label>
+            <input type="text" id="casoSin" name="casoSin" placeholder="Ej. TEA, TDAH, síndrome de Down...">
+        </div>
+    </fieldset>
+
+    <div class="field">
+        <label for="observacion">Anote cualquier observación a tener en cuenta por los docentes en el desarrollo de sus clases</label>
+        <textarea id="observacion" name="observacion" placeholder="Escriba aquí observaciones relevantes"></textarea>
+    </div>
+
+    <!-- TALLA Y PESO -->
+    <div class="section-title">Talla y Peso</div>
+
+    <div class="grid">
+        <div class="field">
+            <label for="estatura">Estatura <span class="required">*</span></label>
+            <input type="number" id="estatura" name="estatura" placeholder="Ej. 1.45" step="0.01" min="0" required>
+        </div>
+
+        <div class="field">
+            <label for="peso">Peso <span class="required">*</span></label>
+            <input type="number" id="peso" name="peso" placeholder="Ej. 42.5" step="0.1" min="0" required>
+        </div>
+
+        <div class="field">
+            <label for="tallC">Talla de camisa o blusa <span class="required">*</span></label>
+            <input type="text" id="tallC" name="tallC" placeholder="Ej. 14, CH, M..." required>
+        </div>
+
+        <div class="field">
+            <label for="tallP">Talla de pantalón o falda <span class="required">*</span></label>
+            <input type="text" id="tallP" name="tallP" placeholder="Ej. 28, 30, CH..." required>
+        </div>
+
+        <div class="field">
+            <label for="tallaZ">Talla de zapatos <span class="required">*</span></label>
+            <input type="text" id="tallaZ" name="tallaZ" placeholder="Ej. 24, 25, 26..." required>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="nobreT">Nombre del padre o tutor</label>
+        <input type="text" id="nobreT" name="nobreT" placeholder="Ej. José Martínez Hernández">
+    </div>
+
+    <button type="submit">Enviar Registro</button>
 </form>
-
 </div>
 
 </body>
