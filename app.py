@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file
 from pypdf import PdfReader, PdfWriter
+from pypdf.generic import NameObject, BooleanObject 
 import os
 
 app = Flask(__name__)
@@ -8,6 +9,10 @@ PDF_CEDULA = "CEDULA_REGISTRO_ALUMNO.pdf"
 PDF_FICHA = "FICHA_INSCRIPCION.pdf"
 PDF_TECNOLOGIA = "Seleccion_tecnologia.pdf"
 PDF_AUTORIZACION = "AUTORIZACION_USO_IMAGEN.pdf"
+
+PDF_TEC = "Seleccion_de_Tecnologias(blanco).pdf"
+PDF_FIC = "ficha inscripcion(blanco).pdf"
+PDF_AUT = "AUTORIZACIÓN DE USO DE IMÁGENES(blanco).pdf"
 
 def formato_fecha(fecha_iso):
     if not fecha_iso:
@@ -42,14 +47,39 @@ def formulario3():
 def formulario4():
     return render_template("autorizacion.html")
 
-from pypdf.generic import NameObject, BooleanObject 
+@app.route("/volver")
+def volver():
+    return render_template("index.html")
 
-from pypdf.generic import NameObject, BooleanObject
+
+# ==========================================
+# RUTAS PARA DESCARGAR DOCUMENTOS ORIGINALES
+# ==========================================
+
+@app.route("/descargar/cedula")
+def descargar_cedula():
+    return send_file(PDF_CEDULA, as_attachment=True)
+
+@app.route("/descargar/ficha")
+def descargar_ficha():
+    return send_file(PDF_FIC, as_attachment=True)
+
+@app.route("/descargar/tecnologia")
+def descargar_tecnologia():
+    return send_file(PDF_TEC, as_attachment=True)
+
+@app.route("/descargas/autorizacion")
+def descargar_autorizacion():
+    return send_file(PDF_AUT, as_attachment=True)
+
+
+# ==========================================
+# RUTAS PARA GENERAR DOCUMENTOS RELLENADOS
+# ==========================================
 
 @app.route("/generar_cedula", methods=["POST"])
 def generar_cedula():
-    data = request.form.to_dict()
-      
+    data = request.form.to_dict()  
     for campo_fecha in ["fecha2", "fechaNacAlu", "fechaNacPadre", "fechaNacMadre", "fechaNacTutor"]:
         if campo_fecha in data:
             data[campo_fecha] = formato_fecha(data[campo_fecha])

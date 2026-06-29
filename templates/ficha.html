@@ -167,9 +167,13 @@ small{
 </head>
 
 <body>
-
 <h1>Ficha de Inscripción de Alumnos(as)</h1>
 <p class="note">Los campos marcados con <span class="required">*</span> son obligatorios.</p>
+
+<div class="container">
+    <p>En caso de que la pagina se ////// esperar 2 minutos</p>
+    <a href="/volver"><button>Regresar al inicio</button></a>
+</div>
 
 <div class="container">
 <form action="/generar" method="POST">
@@ -281,8 +285,8 @@ small{
         </div>
 
         <div class="field">
-            <label for="cel2">Celular 2</label>
-            <input type="tel" id="cel2" name="cel2" placeholder="Ej. 2311234567" pattern="[0-9]{10}">
+            <label for="cel2">Celular 2 <span class="required">*</span></label>
+            <input type="tel" id="cel2" name="cel2" placeholder="Ej. 2311234567" pattern="[0-9]{10}" required>
         </div>
 
         <div class="field">
@@ -294,28 +298,28 @@ small{
     <fieldset class="question">
         <legend>¿Cuenta su hijo(a) con algún tipo de beca? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="becaS" value="X"> Sí</label>
-            <label><input type="checkbox" name="becaN" value="X"> No</label>
+            <label><input type="radio" name="beca" value="SI"> Sí</label>
+            <label><input type="radio" name="beca" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="cualBe">¿Cuál?</label>
-            <input type="text" id="cualBe" name="cualBe" placeholder="Ej. Benito Juárez">
+            <input type="text" id="cualBe" name="cualBe" placeholder="Ej. Rita Cetina">
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Ambos padres viven? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="padresVivenS" value="X"> Sí</label>
-            <label><input type="checkbox" name="padresVivenN" value="X"> No</label>
+            <label><input type="radio" name="padresViven" value="SI"> Sí</label>
+            <label><input type="radio" name="padresViven" value="NO"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Los padres viven separados? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="separadosS" value="X"> Sí</label>
-            <label><input type="checkbox" name="separadosN" value="X"> No</label>
+            <label><input type="radio" name="separados" value="SI"> Sí</label>
+            <label><input type="radio" name="separados" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="vive">En caso afirmativo, ¿con quién vive?</label>
@@ -326,8 +330,8 @@ small{
     <fieldset class="question">
         <legend>¿Habla lengua indígena? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="lenguaS" value="X"> Sí</label>
-            <label><input type="checkbox" name="lenguaN" value="X"> No</label>
+            <label><input type="radio" name="lengua" value="SI"> Sí</label>
+            <label><input type="radio" name="lengua" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="cuall">¿Cuál?</label>
@@ -355,36 +359,41 @@ small{
         </div>
 
         <div class="field">
-            <label for="int">Intervenciones quirúrgicas <span class="required">*</span></label>
-            <input type="text" id="int" name="int" placeholder="Ej. Ninguna / apendicitis..." required>
-        </div>
-
-        <div class="field">
-            <label for="cualMedico">¿Cuál?</label>
-            <input type="text" id="cualMedico" name="cualMedico" placeholder="Describe la intervención o enfermedad">
-        </div>
-
-        <div class="field">
-            <label for="cro">¿Sufre alguna enfermedad crónica? <span class="required">*</span></label>
-            <input type="text" id="cro" name="cro" placeholder="Ej. No / Sí, diabetes..." required>
-        </div>
-
-        <div class="field">
-            <label for="cualSufre">¿Cuál?</label>
-            <input type="text" id="cualSufre" name="cualSufre" placeholder="Especifique si aplica">
-        </div>
-
-        <div class="field">
             <label for="alergia">Alergias</label>
             <input type="text" id="alergia" name="alergia" placeholder="Ej. Penicilina, polvo, mariscos...">
         </div>
     </div>
 
     <fieldset class="question">
+        <legend>¿A pasado por una Intervenciones quirúrgicas? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="int" value="SI"> Sí</label>
+            <label><input type="radio" name="int" value="NO"> No</label>
+        </div>
+        <div class="field">
+            <label for="cualT">¿Cuál?</label>
+            <input type="text" id="cualMedico" name="cualMedico" placeholder="Describe la intervención o enfermedad">
+        </div>
+    </fieldset>
+
+    <fieldset class="question">
+        <legend>¿Sufre alguna enfermedad crónica? <span class="required">*</span></legend>
+        <div class="radio-group">
+            <label><input type="radio" name="cron" value="SI"> Sí</label>
+            <label><input type="radio" name="cron" value="NO"> No</label>
+        </div>
+        <div class="field">
+            <label for="cualT">¿Cuál?</label>
+            <input type="text" id="cualSufre" name="cualSufre" placeholder="Especifique si aplica">
+        </div>
+    </fieldset>
+    
+
+    <fieldset class="question">
         <legend>¿Toma algún medicamento permanente? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="medicamentoS" value="X"> Sí</label>
-            <label><input type="checkbox" name="medicamentoN" value="X"> No</label>
+            <label><input type="radio" name="medicamento" value="SI"> Sí</label>
+            <label><input type="radio" name="medicamento" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="cualT">¿Cuál?</label>
@@ -395,8 +404,8 @@ small{
     <fieldset class="question">
         <legend>¿Presenta alguna enfermedad cardiaca o renal? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="cardiacaS" value="X"> Sí</label>
-            <label><input type="checkbox" name="cardiacaN" value="X"> No</label>
+            <label><input type="radio" name="cardiaca" value="SI"> Sí</label>
+            <label><input type="radio" name="cardiaca" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="cualEnf">¿Cuál?</label>
@@ -407,8 +416,8 @@ small{
     <fieldset class="question">
         <legend>¿Padece asma? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="asmaS" value="X"> Sí</label>
-            <label><input type="checkbox" name="asmaN" value="X"> No</label>
+            <label><input type="radio" name="asma" value="SI"> Sí</label>
+            <label><input type="radio" name="asma" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="tipoAsma">¿Qué tipo?</label>
@@ -419,8 +428,8 @@ small{
     <fieldset class="question">
         <legend>¿Sufre epilepsia o convulsiones? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="epilepsiaS" value="X"> Sí</label>
-            <label><input type="checkbox" name="epilepsiaN" value="X"> No</label>
+            <label><input type="radio" name="epilepsia" value="SI"> Sí</label>
+            <label><input type="radio" name="epilepsia" value="NO"> No</label>
         </div>
     </fieldset>
 
@@ -444,7 +453,7 @@ small{
             <label><input type="checkbox" name="asistenciaMedicaOtro" value="X"> Otro</label>
         </div>
         <div class="field">
-            <label for="tipoAsis">¿Cuál?</label>
+            <label for="tipoAsis">Otro - ¿Cuál?</label>
             <input type="text" id="tipoAsis" name="tipoAsis" placeholder="Especifique si eligió 'Otro'">
         </div>
     </fieldset>
@@ -455,7 +464,7 @@ small{
     <div class="grid">
         <div class="field">
             <label for="prom">Promedio final del grado anterior <span class="required">*</span></label>
-            <input type="number" id="prom" name="prom" placeholder="Ej. 9.5" min="0" max="10" step="0.1" required>
+            <input type="number" id="prom" name="prom" placeholder="Ej. 9.5" min="6" max="10" step="0.1" required>
         </div>
 
         <div class="field">
@@ -477,24 +486,24 @@ small{
     <fieldset class="question">
         <legend>¿Tiene computadora? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="compuS" value="X" > Sí</label>
-            <label><input type="checkbox" name="compuN" value="X"> No</label>
+            <label><input type="radio" name="compu" value="SI" > Sí</label>
+            <label><input type="radio" name="compu" value="NO"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Tiene internet? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="internetS" value="X"> Sí</label>
-            <label><input type="checkbox" name="internetN" value="X"> No</label>
+            <label><input type="radio" name="internet" value="SI"> Sí</label>
+            <label><input type="radio" name="internet" value="NO"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>Durante la primaria, ¿tuvo apoyo de educación especial? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="EduEsS" value="X"> Sí</label>
-            <label><input type="checkbox" name="EduEsN" value="X"> No</label>
+            <label><input type="radio" name="EduEs" value="SI"> Sí</label>
+            <label><input type="radio" name="EduEs" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="moviEs">Motivo</label>
@@ -508,8 +517,8 @@ small{
     <fieldset class="question">
         <legend>¿Su hijo(a) tiene un empleo por las tardes o fines de semana? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="trabS" value="X" > Sí</label>
-            <label><input type="checkbox" name="trabN" value="X"> No</label>
+            <label><input type="radio" name="trab" value="SI" > Sí</label>
+            <label><input type="radio" name="trab" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="desTrab">Descríbalo</label>
@@ -535,8 +544,8 @@ small{
     <fieldset class="question">
         <legend>Lo hace <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="loHaceC" value="X" > Caminando</label>
-            <label><input type="checkbox" name="loHaceT" value="X"> Transporte</label>
+            <label><input type="radio" name="loHace" value="Caminando" > Caminando</label>
+            <label><input type="radio" name="loHace" value="Transporte  "> Transporte</label>
         </div>
     </fieldset>
 
@@ -608,24 +617,24 @@ small{
     <fieldset class="question">
         <legend>¿Es zurdo(a)? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="zurdoS" value="X"> Sí</label>
-            <label><input type="checkbox" name="zurdoN" value="X"> No</label>
+            <label><input type="radio" name="zurdo" value="SI"> Sí</label>
+            <label><input type="radio" name="zurdo" value="NO"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Necesita butaca zurda? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="netZurS" value="X"> Sí</label>
-            <label><input type="checkbox" name="netZurN" value="X"> No</label>
+            <label><input type="radio" name="netZur" value="SI"> Sí</label>
+            <label><input type="radio" name="netZur" value="NO"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Asiste o ha asistido a apoyo psicológico? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="psicoS" value="X"> Sí</label>
-            <label><input type="checkbox" name="psicoN" value="X"> No</label>
+            <label><input type="radio" name="psico" value="SI"> Sí</label>
+            <label><input type="radio" name="psico" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="razonPsi">Razón</label>
@@ -636,8 +645,8 @@ small{
     <fieldset class="question">
         <legend>¿El alumno presenta algún síndrome o espectro? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="checkbox" name="sindromeS" value="X"> Sí</label>
-            <label><input type="checkbox" name="sindromeN" value="X"> No</label>
+            <label><input type="radio" name="sindrome" value="SI"> Sí</label>
+            <label><input type="radio" name="sindrome" value="NO"> No</label>
         </div>
         <div class="field">
             <label for="casoSin">En caso afirmativo, ¿cuál?</label>
@@ -676,13 +685,13 @@ small{
 
         <div class="field">
             <label for="tallaZ">Talla de zapatos <span class="required">*</span></label>
-            <input type="text" id="tallaZ" name="tallaZ" placeholder="Ej. 24, 25, 26..." required>
+            <input type="number" id="tallaZ" name="tallaZ" placeholder="Ej. 24, 25, 26..." required>
         </div>
     </div>
 
     <div class="field">
         <label for="nobreT">Nombre del padre o tutor</label>
-        <input type="text" id="nobreT" name="nobreT" placeholder="Ej. José Martínez Hernández">
+        <input type="number" id="nobreT" name="nobreT" placeholder="Ej. José Martínez Hernández">
     </div>
 
     <button type="submit">Enviar Registro</button>

@@ -1,86 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Sistema de Formularios Escolares</title>
+    <meta charset="UTF-8">
+    <title>Sistema de Formularios Escolares</title>
 
-<style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(244, 246, 249, 0.35), rgba(244, 246, 249, 0.35)), url('static/fondo.jpg');
+            background-size: cover;
+            background-position: center;     
+            background-repeat: no-repeat;    
+            background-attachment: fixed;    
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+        }
 
-body{
-    font-family: Arial;
+        h1 {
+            margin-bottom: 30px;
+            color: #003366; 
+            text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); 
+        }
 
-    background: linear-gradient(rgba(244, 246, 249, 0.35), rgba(244, 246, 249, 0.35)), url('static/fondo.jpg');
-    background-size: cover;
-    background-position: center;     
-    background-repeat: no-repeat;    
-    background-attachment: fixed;    
-    text-align: center;
-    padding-top: 100px;
-}
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 22px;
+        }
 
-h1 {
-    margin-bottom: 50px;
-    color: #003366; 
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); 
-}
+        .menu, .descargas {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
 
-.menu{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-}
+        button {
+            width: 230px;
+            height: 110px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #003366;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-button{
-    width:250px;
-    height:120px;
-    font-size:20px;
-    border:none;
-    border-radius:10px;
-    background:#003366;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
-}
+        button:hover {
+            background: #0055aa;
+            transform: scale(1.05);
+        }
 
-button:hover{
-    background:#0055aa;
-    transform:scale(1.05);
-}
+        /* Estilos específicos para los botones de descarga */
+        .btn-descarga {
+            background: #16a085;
+            height: 80px;
+            font-size: 16px;
+        }
 
-</style>
+        .btn-descarga:hover {
+            background: #1abc9c;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>Sistema de Registro Escolar</h1>
+    <h1>Sistema de Registro Escolar</h1>
+    
+    <h2>Llenado de Formularios</h2>
+    <div class="menu">
+        <a href="/formulario"><button>Registro de Alumno</button></a>
+        <a href="/tecnologias"><button>Selección de Tecnología</button></a>
+        <a href="/ficha"><button>Ficha de Inscripción</button></a>
+        <a href="/autorizacion"><button>Autorización de Uso de Imagen</button></a>
+    </div>
 
-<div class="menu">
-
-<a href="/formulario">
-<button>
-Registro de Alumno
-</button>
-</a>
-
-<a href="/tecnologias">
-<button>
-Seleleccion de tecnologia
-</button>
-</a>
-
-<a href="/ficha">
-<button>
-Ficha de inscripcion
-</button>
-</a>
-
-<a href="/autorizacion">
-<button>
-Autorizacion de uso de imagen 
-</button>
-</a>
-
-</div>
+    <h2>Descargar Plantillas PDF Vacías</h2>
+    <div class="descargas">
+        <a href="/descargar/cedula"><button class="btn-descarga">Descargar Cédula Registro</button></a>
+        <a href="/descargar/tecnologia"><button class="btn-descarga">Descargar Sel. Tecnología</button></a>
+        <a href="/descargar/ficha"><button class="btn-descarga">Descargar Ficha Inscripción</button></a>
+        <a href="/descargas/autorizacion"><button class="btn-descarga">Descargar Autorización Imagen</button></a>
+    </div>
 
 </body>
 </html>
