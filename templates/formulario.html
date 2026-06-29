@@ -189,9 +189,9 @@
             </div>
 
             <label>Género *</label>
-            <div class="radio-group">
-                <label><input type="radio" name="generoHAlu" value="H" required> Hombre</label>
-                <label><input type="radio" name="generoMAlu" value="M" required> Mujer</label>
+            <div class="radio-group" required>
+                <label><input type="checkbox" name="generoHAlu" value="X"> Hombre</label>
+                <label><input type="checkbox" name="generoMAlu" value="X"> Mujer</label>
             </div>
 
             <!-- PADRE -->
@@ -235,17 +235,17 @@
 
                 <div class="field">
                     <label>Vive con el alumno *</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="viveAluPadreS" value="Si" required> Sí</label>
-                        <label><input type="radio" name="viveAluPadreN" value="No" required> No</label>
+                    <div class="radio-group" required>
+                        <label><input type="checkbox" name="viveAluPadreS" value="X"> Sí</label>
+                        <label><input type="checkbox" name="viveAluPadreN" value="X"> No</label>
                     </div>
                 </div>
 
                 <div class="field">
                     <label>En caso de no vivir con el alumno</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="esTutorPadre" value="Tutor"> Es el Tutor</label>
-                        <label><input type="radio" name="esFinadoPadre" value="Finado"> Es Finado</label>
+                        <label><input type="checkbox" name="esTutorPadre" value="X"> Es el Tutor</label>
+                        <label><input type="checkbox" name="esFinadoPadre" value="X"> Es Finado</label>
                     </div>
                 </div>
 
@@ -376,17 +376,17 @@
 
                 <div class="field">
                     <label>Vive con el alumno *</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="viveAluMadreS" value="Si" required> Sí</label>
-                        <label><input type="radio" name="viveAluMadreN" value="No" required> No</label>
+                    <div class="radio-group" required>
+                        <label><input type="checkbox" name="viveAluMadreS" value="X"> Sí</label>
+                        <label><input type="checkbox" name="viveAluMadreN" value="X"> No</label>
                     </div>
                 </div>
 
                 <div class="field">
                     <label>En caso de no vivir con el alumno</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="esTutorMadre" value="Tutor"> Es la Tutora</label>
-                        <label><input type="radio" name="esFinadoMadre" value="Finada"> Es Finada</label>
+                        <label><input type="checkbox" name="esTutorMadre" value="X"> Es la Tutora</label>
+                        <label><input type="checkbox" name="esFinadoMadre" value="X"> Es Finada</label>
                     </div>
                 </div>
 
@@ -522,17 +522,17 @@
 
                 <div class="field">
                     <label>Vive con el alumno *</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="viveAluTutorS" value="Si" required> Sí</label>
-                        <label><input type="radio" name="viveAluTutorN" value="No" required> No</label>
+                    <div class="radio-group" required>
+                        <label><input type="checkbox" name="viveAluTutorS" value="X"> Sí</label>
+                        <label><input type="checkbox" name="viveAluTutorN" value="X"> No</label>
                     </div>
                 </div>
 
                 <div class="field">
                     <label>En caso de no vivir con el alumno ¿Es tutor legal?</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="esTutorSi" value="Si"> Sí</label>
-                        <label><input type="radio" name="esTutorNo" value="No"> No</label>
+                        <label><input type="checkbox" name="esTutorSi" value="X"> Sí</label>
+                        <label><input type="checkbox" name="esTutorNo" value="X"> No</label>
                     </div>
                 </div>
 
@@ -666,12 +666,12 @@
 
                 <div class="field">
                     <label for="dGrado">Grado *</label>
-                    <input type="text" id="dGrado" name="dGrado" placeholder="Ej. 1" required>
+                    <input type="text" id="dGrado" name="dGrado" placeholder="Ej. 1"  maxlength="1" required>
                 </div>
 
                 <div class="field">
                     <label for="dGrupo">Grupo *</label>
-                    <input type="text" id="dGrupo" name="dGrupo" placeholder="Ej. A" required>
+                    <input type="text" id="dGrupo" name="dGrupo" placeholder="Ej. A" maxlength="1"  required>
                 </div>
 
                 <div class="field">

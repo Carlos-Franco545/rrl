@@ -222,9 +222,9 @@ small{
     <fieldset class="question">
         <legend>Parentesco con el alumno(a) <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="parentesco" value="Madre" required> Madre</label>
-            <label><input type="radio" name="parentesco" value="Padre"> Padre</label>
-            <label><input type="radio" name="parentesco" value="Tutor"> Tutor</label>
+            <label><input type="checkbox" name="parentescoM" value="X" > Madre</label>
+            <label><input type="checkbox" name="parentescoP" value="X" > Padre</label>
+            <label><input type="checkbox" name="parentescoT" value="X" > Tutor</label>
         </div>
     </fieldset>
 
@@ -294,8 +294,8 @@ small{
     <fieldset class="question">
         <legend>¿Cuenta su hijo(a) con algún tipo de beca? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="beca" value="Sí" required> Sí</label>
-            <label><input type="radio" name="beca" value="No"> No</label>
+            <label><input type="checkbox" name="becaS" value="X"> Sí</label>
+            <label><input type="checkbox" name="becaN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="cualBe">¿Cuál?</label>
@@ -306,16 +306,16 @@ small{
     <fieldset class="question">
         <legend>¿Ambos padres viven? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="padresViven" value="Sí" required> Sí</label>
-            <label><input type="radio" name="padresViven" value="No"> No</label>
+            <label><input type="checkbox" name="padresVivenS" value="X"> Sí</label>
+            <label><input type="checkbox" name="padresVivenN" value="X"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Los padres viven separados? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="separados" value="Sí" required> Sí</label>
-            <label><input type="radio" name="separados" value="No"> No</label>
+            <label><input type="checkbox" name="separadosS" value="X"> Sí</label>
+            <label><input type="checkbox" name="separadosN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="vive">En caso afirmativo, ¿con quién vive?</label>
@@ -326,8 +326,8 @@ small{
     <fieldset class="question">
         <legend>¿Habla lengua indígena? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="lengua" value="Sí" required> Sí</label>
-            <label><input type="radio" name="lengua" value="No"> No</label>
+            <label><input type="checkbox" name="lenguaS" value="X"> Sí</label>
+            <label><input type="checkbox" name="lenguaN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="cuall">¿Cuál?</label>
@@ -383,8 +383,8 @@ small{
     <fieldset class="question">
         <legend>¿Toma algún medicamento permanente? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="medicamento" value="Sí" required> Sí</label>
-            <label><input type="radio" name="medicamento" value="No"> No</label>
+            <label><input type="checkbox" name="medicamentoS" value="X"> Sí</label>
+            <label><input type="checkbox" name="medicamentoN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="cualT">¿Cuál?</label>
@@ -395,8 +395,8 @@ small{
     <fieldset class="question">
         <legend>¿Presenta alguna enfermedad cardiaca o renal? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="cardiaca" value="Sí" required> Sí</label>
-            <label><input type="radio" name="cardiaca" value="No"> No</label>
+            <label><input type="checkbox" name="cardiacaS" value="X"> Sí</label>
+            <label><input type="checkbox" name="cardiacaN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="cualEnf">¿Cuál?</label>
@@ -407,8 +407,8 @@ small{
     <fieldset class="question">
         <legend>¿Padece asma? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="asma" value="Sí" required> Sí</label>
-            <label><input type="radio" name="asma" value="No"> No</label>
+            <label><input type="checkbox" name="asmaS" value="X"> Sí</label>
+            <label><input type="checkbox" name="asmaN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="tipoAsma">¿Qué tipo?</label>
@@ -419,30 +419,29 @@ small{
     <fieldset class="question">
         <legend>¿Sufre epilepsia o convulsiones? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="epilepsia" value="Sí" required> Sí</label>
-            <label><input type="radio" name="epilepsia" value="No"> No</label>
+            <label><input type="checkbox" name="epilepsiaS" value="X"> Sí</label>
+            <label><input type="checkbox" name="epilepsiaN" value="X"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Padece alguna discapacidad?</legend>
         <div class="radio-group">
-            <label><input type="radio" name="discapacidad" value="Visual"> Visual</label>
-            <label><input type="radio" name="discapacidad" value="Auditiva"> Auditiva</label>
-            <label><input type="radio" name="discapacidad" value="Motriz"> Motriz</label>
-            <label><input type="radio" name="discapacidad" value="Intelectual"> Intelectual</label>
-            <label><input type="radio" name="discapacidad" value="Ninguna"> Ninguna</label>
+            <label><input type="checkbox" name="discapacidadV" value="X"> Visual</label>
+            <label><input type="checkbox" name="discapacidadA" value="X"> Auditiva</label>
+            <label><input type="checkbox" name="discapacidadM" value="X"> Motriz</label>
+            <label><input type="checkbox" name="discapacidadI" value="X"> Intelectual</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>Cuando se enferma, asiste a <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="asistenciaMedica" value="IMSS" required> IMSS</label>
-            <label><input type="radio" name="asistenciaMedica" value="ISSSTE"> ISSSTE</label>
-            <label><input type="radio" name="asistenciaMedica" value="ISSSTEP"> ISSSTEP</label>
-            <label><input type="radio" name="asistenciaMedica" value="INSABI"> INSABI</label>
-            <label><input type="radio" name="asistenciaMedica" value="Otro"> Otro</label>
+            <label><input type="checkbox" name="asistenciaMedicaI" value="X"> IMSS</label>
+            <label><input type="checkbox" name="asistenciaMedicaS" value="X"> ISSSTE</label>
+            <label><input type="checkbox" name="asistenciaMedicaStep" value="X"> ISSSTEP</label>
+            <label><input type="checkbox" name="asistenciaMedicaIns" value="X"> INSABI</label>
+            <label><input type="checkbox" name="asistenciaMedicaOtro" value="X"> Otro</label>
         </div>
         <div class="field">
             <label for="tipoAsis">¿Cuál?</label>
@@ -478,24 +477,24 @@ small{
     <fieldset class="question">
         <legend>¿Tiene computadora? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="compu" value="Sí" required> Sí</label>
-            <label><input type="radio" name="compu" value="No"> No</label>
+            <label><input type="checkbox" name="compuS" value="X" > Sí</label>
+            <label><input type="checkbox" name="compuN" value="X"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Tiene internet? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="internet" value="Sí" required> Sí</label>
-            <label><input type="radio" name="internet" value="No"> No</label>
+            <label><input type="checkbox" name="internetS" value="X"> Sí</label>
+            <label><input type="checkbox" name="internetN" value="X"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>Durante la primaria, ¿tuvo apoyo de educación especial? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="EduEs" value="Sí" required> Sí</label>
-            <label><input type="radio" name="EduEs" value="No"> No</label>
+            <label><input type="checkbox" name="EduEsS" value="X"> Sí</label>
+            <label><input type="checkbox" name="EduEsN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="moviEs">Motivo</label>
@@ -509,8 +508,8 @@ small{
     <fieldset class="question">
         <legend>¿Su hijo(a) tiene un empleo por las tardes o fines de semana? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="trab" value="Sí" required> Sí</label>
-            <label><input type="radio" name="trab" value="No"> No</label>
+            <label><input type="checkbox" name="trabS" value="X" > Sí</label>
+            <label><input type="checkbox" name="trabN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="desTrab">Descríbalo</label>
@@ -536,19 +535,19 @@ small{
     <fieldset class="question">
         <legend>Lo hace <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="loHace" value="Caminando" required> Caminando</label>
-            <label><input type="radio" name="loHace" value="Transporte"> Transporte</label>
+            <label><input type="checkbox" name="loHaceC" value="X" > Caminando</label>
+            <label><input type="checkbox" name="loHaceT" value="X"> Transporte</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Cuál transporte utiliza?</legend>
         <div class="radio-group">
-            <label><input type="radio" name="TransporteTip" value="Combi"> Combi</label>
-            <label><input type="radio" name="TransporteTip" value="Carro Particular"> Carro Particular</label>
-            <label><input type="radio" name="TransporteTip" value="Taxi Especial"> Taxi Especial</label>
-            <label><input type="radio" name="TransporteTip" value="Bicicleta"> Bicicleta</label>
-            <label><input type="radio" name="TransporteTip" value="Otro"> Otro</label>
+            <label><input type="checkbox" name="TransporteTipC" value="X"> Combi</label>
+            <label><input type="checkbox" name="TransporteTipCP" value="X"> Carro Particular</label>
+            <label><input type="checkbox" name="TransporteTipTE" value="X"> Taxi Especial</label>
+            <label><input type="checkbox" name="TransporteTipB" value="X"> Bicicleta</label>
+            <label><input type="checkbox" name="TransporteTipO" value="X"> Otro</label>
         </div>
         <div class="field">
             <label for="cualTip">Otro, ¿cuál?</label>
@@ -609,24 +608,24 @@ small{
     <fieldset class="question">
         <legend>¿Es zurdo(a)? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="zurdo" value="Sí" required> Sí</label>
-            <label><input type="radio" name="zurdo" value="No"> No</label>
+            <label><input type="checkbox" name="zurdoS" value="X"> Sí</label>
+            <label><input type="checkbox" name="zurdoN" value="X"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Necesita butaca zurda? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="netZur" value="Sí" required> Sí</label>
-            <label><input type="radio" name="netZur" value="No"> No</label>
+            <label><input type="checkbox" name="netZurS" value="X"> Sí</label>
+            <label><input type="checkbox" name="netZurN" value="X"> No</label>
         </div>
     </fieldset>
 
     <fieldset class="question">
         <legend>¿Asiste o ha asistido a apoyo psicológico? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="psico" value="Sí" required> Sí</label>
-            <label><input type="radio" name="psico" value="No"> No</label>
+            <label><input type="checkbox" name="psicoS" value="X"> Sí</label>
+            <label><input type="checkbox" name="psicoN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="razonPsi">Razón</label>
@@ -637,8 +636,8 @@ small{
     <fieldset class="question">
         <legend>¿El alumno presenta algún síndrome o espectro? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="sindrome" value="Sí" required> Sí</label>
-            <label><input type="radio" name="sindrome" value="No"> No</label>
+            <label><input type="checkbox" name="sindromeS" value="X"> Sí</label>
+            <label><input type="checkbox" name="sindromeN" value="X"> No</label>
         </div>
         <div class="field">
             <label for="casoSin">En caso afirmativo, ¿cuál?</label>

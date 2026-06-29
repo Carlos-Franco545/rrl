@@ -4,15 +4,12 @@ import os
 
 app = Flask(__name__)
 
-# --- CONFIGURACIÓN DE PLANTILLAS PDF ---
-# Asegúrate de que estos archivos estén en la raíz de tu proyecto junto a app.py
 PDF_CEDULA = "CEDULA_REGISTRO_ALUMNO.pdf"
 PDF_FICHA = "FICHA_INSCRIPCION.pdf"
 PDF_TECNOLOGIA = "Seleccion_tecnologia.pdf"
 PDF_AUTORIZACION = "AUTORIZACION_USO_IMAGEN.pdf"
 
 def formato_fecha(fecha_iso):
-    """Convierte fechas de formato HTML (YYYY-MM-DD) a formato escolar (DD/MM/YYYY)."""
     if not fecha_iso:
         return ""
     try:
@@ -24,7 +21,6 @@ def formato_fecha(fecha_iso):
         pass
     return fecha_iso
 
-# --- RUTAS PARA MOSTRAR LAS PÁGINAS (HTML) ---
 
 @app.route("/")
 def inicio():
@@ -46,31 +42,18 @@ def formulario3():
 def formulario4():
     return render_template("autorizacion.html")
 
+from pypdf.generic import NameObject, BooleanObject 
 
-# --- PROCESADORES DE FORMULARIOS (POST) ---
+from pypdf.generic import NameObject, BooleanObject
 
 @app.route("/generar_cedula", methods=["POST"])
 def generar_cedula():
     data = request.form.to_dict()
     
-    # Formatear campos de fecha si vienen en el formulario
-    if "fecha2" in data:
-        data["fecha2"] = formato_fecha(data["fecha2"])
-    if "fechaNacAlu" in data:
-        data["fechaNacAlu"] = formato_fecha(data["fechaNacAlu"])
-    if "fechaNacPadre" in data:
-        data["fechaNacPadre"] = formato_fecha(data["fechaNacPadre"])
-    if "fechaNacMadre" in data:
-        data["fechaNacMadre"] = formato_fecha(data["fechaNacMadre"])
-    if "fechaNacTutor" in data:
-        data["fechaNacTutor"] = formato_fecha(data["fechaNacTutor"])
-
-    if data.get("generoHAlu") == "H":
-        data["generoHombre"] = "/Yes"
-        data["generoMujer"] = "/Off"
-    elif data.get("generoHAlu") == "M":
-        data["generoHombre"] = "/Off"
-        data["generoMujer"] = "/Yes"
+  
+    for campo_fecha in ["fecha2", "fechaNacAlu", "fechaNacPadre", "fechaNacMadre", "fechaNacTutor"]:
+        if campo_fecha in data:
+            data[campo_fecha] = formato_fecha(data[campo_fecha])
 
     output = "cedula_registro_final.pdf"
     
@@ -78,7 +61,11 @@ def generar_cedula():
     writer = PdfWriter()
     writer.append(reader)
 
-    # Rellenar todas las páginas del PDF de forma nativa
+    if "/AcroForm" in writer._root_object:
+        writer._root_object["/AcroForm"].update({
+            NameObject("/NeedAppearances"): BooleanObject(True)
+        })
+
     for page in writer.pages:
         writer.update_page_form_field_values(page, data)
 
@@ -92,14 +79,11 @@ def generar_cedula():
 def generar_ficha():
     data = request.form.to_dict()
 
-
-    # 1. Apoyo Psicológico envía 'Caminando' para SÍ y 'Transporte' para NO
     if data.get("psico") == "Caminando":
         data["psico"] = "Si"
     elif data.get("psico") == "Transporte":
         data["psico"] = "No"
 
-    # 2. El campo 'sindorme' (typo de tu HTML) también envía 'Caminando'/'Transporte'
     if data.get("sindorme") == "Caminando":
         data["sindorme"] = "Si"
     elif data.get("sindorme") == "Transporte":
@@ -137,7 +121,6 @@ def generar_tecnologia():
 
     return send_file(output, as_attachment=True)
 
-
 @app.route("/generar_autorizacion", methods=["POST"])
 def generar_autorizacion():
     data = request.form.to_dict()
@@ -154,7 +137,6 @@ def generar_autorizacion():
         writer.write(output_stream)
 
     return send_file(output, as_attachment=True)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
