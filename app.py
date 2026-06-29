@@ -49,8 +49,7 @@ from pypdf.generic import NameObject, BooleanObject
 @app.route("/generar_cedula", methods=["POST"])
 def generar_cedula():
     data = request.form.to_dict()
-    
-  
+      
     for campo_fecha in ["fecha2", "fechaNacAlu", "fechaNacPadre", "fechaNacMadre", "fechaNacTutor"]:
         if campo_fecha in data:
             data[campo_fecha] = formato_fecha(data[campo_fecha])
@@ -78,6 +77,10 @@ def generar_cedula():
 @app.route("/generar", methods=["POST"])
 def generar_ficha():
     data = request.form.to_dict()
+
+    for clave, valor in data.items():
+        if isinstance(valor, str) and "&" in valor:
+            data[clave] = valor.replace("&", ", ")
 
     if data.get("psico") == "Caminando":
         data["psico"] = "Si"
@@ -108,6 +111,10 @@ def generar_ficha():
 def generar_tecnologia():
     data = request.form.to_dict()
     output = "seleccion_tecnologia_final.pdf"
+
+    for clave, valor in data.items():
+        if isinstance(valor, str) and "&" in valor:
+            data[clave] = valor.replace("&", ", ")
     
     reader = PdfReader(PDF_TECNOLOGIA)
     writer = PdfWriter()
@@ -125,6 +132,10 @@ def generar_tecnologia():
 def generar_autorizacion():
     data = request.form.to_dict()
     output = "autorizacion_imagen_final.pdf"
+
+    for clave, valor in data.items():
+        if isinstance(valor, str) and "&" in valor:
+            data[clave] = valor.replace("&", ", ")
     
     reader = PdfReader(PDF_AUTORIZACION)
     writer = PdfWriter()
