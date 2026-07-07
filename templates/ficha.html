@@ -301,7 +301,7 @@ small{
             <label><input type="radio" id="beca_no" name="beca" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualBe">¿Cuál? <span id="asteriscoBeca" class="required" style="display: none;">*</span></label>
+            <label for="cualBe">¿Cuál? <span id="ast_cualBe" class="required" style="display: none;">*</span></label>
             <input type="text" id="cualBe" name="cualBe" placeholder="Ej. Rita Cetina">
         </div>
     </fieldset>
@@ -317,11 +317,11 @@ small{
     <fieldset class="question">
         <legend>¿Los padres viven separados? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="separados" value="SI"> Sí</label>
-            <label><input type="radio" name="separados" value="NO"> No</label>
+            <label><input type="radio" id="separados_si" name="separados" value="SI"> Sí</label>
+            <label><input type="radio" id="separados_no" name="separados" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="vive">En caso afirmativo, ¿con quién vive?</label>
+            <label for="vive">En caso afirmativo, ¿con quién vive? <span id="ast_vive" class="required" style="display: none;">*</span></label>
             <input type="text" id="vive" name="vive" placeholder="Ej. Con su madre">
         </div>
     </fieldset>
@@ -329,11 +329,11 @@ small{
     <fieldset class="question">
         <legend>¿Habla lengua indígena? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="lengua" value="SI"> Sí</label>
-            <label><input type="radio" name="lengua" value="NO"> No</label>
+            <label><input type="radio" id="lengua_si" name="lengua" value="SI"> Sí</label>
+            <label><input type="radio" id="lengua_no" name="lengua" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cuall">¿Cuál?</label>
+            <label for="cuall">¿Cuál? <span id="ast_cuall" class="required" style="display: none;">*</span></label>
             <input type="text" id="cuall" name="cuall" placeholder="Ej. Náhuatl, Totonaco...">
         </div>
     </fieldset>
@@ -365,11 +365,11 @@ small{
     <fieldset class="question">
         <legend>¿A pasado por una Intervenciones quirúrgicas? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="int" value="SI"> Sí</label>
-            <label><input type="radio" name="int" value="NO"> No</label>
+            <label><input type="radio" id="int_si" name="int" value="SI"> Sí</label>
+            <label><input type="radio" id="int_no" name="int" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualMedico">¿Cuál?</label>
+            <label for="cualMedico">¿Cuál? <span id="ast_cualMedico" class="required" style="display: none;">*</span></label>
             <input type="text" id="cualMedico" name="cualMedico" placeholder="Describe la intervención o enfermedad">
         </div>
     </fieldset>
@@ -377,24 +377,23 @@ small{
     <fieldset class="question">
         <legend>¿Sufre alguna enfermedad crónica? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="cron" value="SI"> Sí</label>
-            <label><input type="radio" name="cron" value="NO"> No</label>
+            <label><input type="radio" id="cron_si" name="cron" value="SI"> Sí</label>
+            <label><input type="radio" id="cron_no" name="cron" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualSufre">¿Cuál?</label>
+            <label for="cualSufre">¿Cuál? <span id="ast_cualSufre" class="required" style="display: none;">*</span></label>
             <input type="text" id="cualSufre" name="cualSufre" placeholder="Especifique si aplica">
         </div>
     </fieldset>
     
-
     <fieldset class="question">
         <legend>¿Toma algún medicamento permanente? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="medicamento" value="SI"> Sí</label>
-            <label><input type="radio" name="medicamento" value="NO"> No</label>
+            <label><input type="radio" id="medicamento_si" name="medicamento" value="SI"> Sí</label>
+            <label><input type="radio" id="medicamento_no" name="medicamento" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualT">¿Cuál?</label>
+            <label for="cualT">¿Cuál? <span id="ast_cualT" class="required" style="display: none;">*</span></label>
             <input type="text" id="cualT" name="cualT" placeholder="Nombre del medicamento">
         </div>
     </fieldset>
@@ -402,11 +401,11 @@ small{
     <fieldset class="question">
         <legend>¿Presenta alguna enfermedad cardiaca o renal? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="cardiaca" value="SI"> Sí</label>
-            <label><input type="radio" name="cardiaca" value="NO"> No</label>
+            <label><input type="radio" id="cardiaca_si" name="cardiaca" value="SI"> Sí</label>
+            <label><input type="radio" id="cardiaca_no" name="cardiaca" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualEnf">¿Cuál?</label>
+            <label for="cualEnf">¿Cuál? <span id="ast_cualEnf" class="required" style="display: none;">*</span></label>
             <input type="text" id="cualEnf" name="cualEnf" placeholder="Especifique si aplica">
         </div>
     </fieldset>
@@ -414,11 +413,11 @@ small{
     <fieldset class="question">
         <legend>¿Padece asma? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="asma" value="SI"> Sí</label>
-            <label><input type="radio" name="asma" value="NO"> No</label>
+            <label><input type="radio" id="asma_si" name="asma" value="SI"> Sí</label>
+            <label><input type="radio" id="asma_no" name="asma" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="tipoAsma">¿Qué tipo?</label>
+            <label for="tipoAsma">¿Qué tipo? <span id="ast_tipoAsma" class="required" style="display: none;">*</span></label>
             <input type="text" id="tipoAsma" name="tipoAsma" placeholder="Ej. Leve, moderada...">
         </div>
     </fieldset>
@@ -499,11 +498,11 @@ small{
     <fieldset class="question">
         <legend>Durante la primaria, ¿tuvo apoyo de educación especial? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="EduEs" value="SI"> Sí</label>
-            <label><input type="radio" name="EduEs" value="NO"> No</label>
+            <label><input type="radio" id="EduEs_si" name="EduEs" value="SI"> Sí</label>
+            <label><input type="radio" id="EduEs_no" name="EduEs" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="moviEs">Motivo</label>
+            <label for="moviEs">Motivo <span id="ast_moviEs" class="required" style="display: none;">*</span></label>
             <input type="text" id="moviEs" name="moviEs" placeholder="Explique si aplica">
         </div>
     </fieldset>
@@ -513,11 +512,11 @@ small{
     <fieldset class="question">
         <legend>¿Su hijo(a) tiene un empleo por las tardes o fines de semana? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="trab" value="SI" > Sí</label>
-            <label><input type="radio" name="trab" value="NO"> No</label>
+            <label><input type="radio" id="trab_si" name="trab" value="SI" > Sí</label>
+            <label><input type="radio" id="trab_no" name="trab" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="desTrab">Descríbalo</label>
+            <label for="desTrab">Descríbalo <span id="ast_desTrab" class="required" style="display: none;">*</span></label>
             <input type="text" id="desTrab" name="desTrab" placeholder="Ej. Ayuda en negocio familiar">
         </div>
     </fieldset>
@@ -594,7 +593,7 @@ small{
 
         <div class="field">
             <label for="rinon">¿Presenta algún problema de riñón o vejiga? <span class="required">*</span></label>
-            <input type="text" id="rinon" name="rinon" placeholder="Ej. No / infección recurrentrente..." required>
+            <input type="text" id="rinon" name="rinon" placeholder="Ej. No / infección recurrente..." required>
         </div>
 
         <div class="field">
@@ -627,11 +626,11 @@ small{
     <fieldset class="question">
         <legend>¿Asiste o ha asistido a apoyo psicológico? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="psico" value="SI"> Sí</label>
-            <label><input type="radio" name="psico" value="NO"> No</label>
+            <label><input type="radio" id="psico_si" name="psico" value="SI"> Sí</label>
+            <label><input type="radio" id="psico_no" name="psico" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="razonPsi">Razón</label>
+            <label for="razonPsi">Razón <span id="ast_razonPsi" class="required" style="display: none;">*</span></label>
             <input type="text" id="razonPsi" name="razonPsi" placeholder="Explique si aplica">
         </div>
     </fieldset>
@@ -639,11 +638,11 @@ small{
     <fieldset class="question">
         <legend>¿El alumno presenta algún síndrome o espectro? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="sindrome" value="SI"> Sí</label>
-            <label><input type="radio" name="sindrome" value="NO"> No</label>
+            <label><input type="radio" id="sindrome_si" name="sindrome" value="SI"> Sí</label>
+            <label><input type="radio" id="sindrome_no" name="sindrome" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="casoSin">En caso afirmativo, ¿cuál?</label>
+            <label for="casoSin">En caso afirmativo, ¿cuál? <span id="ast_casoSin" class="required" style="display: none;">*</span></label>
             <input type="text" id="casoSin" name="casoSin" placeholder="Ej. TEA, TDAH, síndrome de Down...">
         </div>
     </fieldset>
@@ -684,7 +683,7 @@ small{
 
     <div class="field">
         <label for="nobreT">Nombre del padre o tutor</label>
-        <input type="text" id="nobreT" name="nobreT" placeholder="Ej. José Martínez Hernández">
+        <input type="number" id="nobreT" name="nobreT" placeholder="Ej. José Martínez Hernández">
     </div>
 
     <button type="submit">Enviar Registro</button>
@@ -692,27 +691,46 @@ small{
 </div>
 
 <script>
-    const radioSi = document.getElementById('beca_si');
-    const radioNo = document.getElementById('beca_no');
-    const inputCual = document.getElementById('cualBe');
-    const asteriscoBeca = document.getElementById('asteriscoBeca');
+    // Mapeo de todas las preguntas de Sí/No con su respectivo campo de texto a activar
+    const configuracionCampos = [
+        { si: 'beca_si',        no: 'beca_no',        input: 'cualBe',       asterisco: 'ast_cualBe' },
+        { si: 'separados_si',   no: 'separados_no',   input: 'vive',         asterisco: 'ast_vive' },
+        { si: 'lengua_si',      no: 'lengua_no',      input: 'cuall',        asterisco: 'ast_cuall' },
+        { si: 'int_si',         no: 'int_no',         input: 'cualMedico',   asterisco: 'ast_cualMedico' },
+        { si: 'cron_si',        no: 'cron_no',        input: 'cualSufre',    asterisco: 'ast_cualSufre' },
+        { si: 'medicamento_si', no: 'medicamento_no', input: 'cualT',        asterisco: 'ast_cualT' },
+        { si: 'cardiaca_si',    no: 'cardiaca_no',    input: 'cualEnf',      asterisco: 'ast_cualEnf' },
+        { si: 'asma_si',        no: 'asma_no',        input: 'tipoAsma',     asterisco: 'ast_tipoAsma' },
+        { si: 'EduEs_si',       no: 'EduEs_no',       input: 'moviEs',       asterisco: 'ast_moviEs' },
+        { si: 'trab_si',        no: 'trab_no',        input: 'desTrab',      asterisco: 'ast_desTrab' },
+        { si: 'psico_si',       no: 'psico_no',       input: 'razonPsi',     asterisco: 'ast_razonPsi' },
+        { si: 'sindrome_si',    no: 'sindrome_no',    input: 'casoSin',      asterisco: 'ast_casoSin' }
+    ];
 
-    function toggleBecaRequired() {
-        if (radioSi.checked) {
-            inputCual.required = true;
-            asteriscoBeca.style.display = 'inline';
-        } else {
-            inputCual.required = false;
-            asteriscoBeca.style.display = 'none';
-            if (radioNo.checked) {
-                inputCual.value = ''; // Limpia el texto si cambian a "No"
+    configuracionCampos.forEach(grupo => {
+        const radioSi = document.getElementById(grupo.si);
+        const radioNo = document.getElementById(grupo.no);
+        const inputTexto = document.getElementById(grupo.input);
+        const asterisco = document.getElementById(grupo.asterisco);
+
+        if (radioSi && radioNo && inputTexto && asterisco) {
+            function actualizarValidacion() {
+                if (radioSi.checked) {
+                    inputTexto.required = true;
+                    asterisco.style.display = 'inline';
+                } else {
+                    inputTexto.required = false;
+                    asterisco.style.display = 'none';
+                    if (radioNo.checked) {
+                        inputTexto.value = ''; // Borra lo escrito si cambian a "No"
+                    }
+                }
             }
-        }
-    }
 
-    // Escuchar el cambio en ambas opciones de radio
-    radioSi.addEventListener('change', toggleBecaRequired);
-    radioNo.addEventListener('change', toggleBecaRequired);
+            radioSi.addEventListener('change', actualizarValidacion);
+            radioNo.addEventListener('change', actualizarValidacion);
+        }
+    });
 </script>
 
 </body>
