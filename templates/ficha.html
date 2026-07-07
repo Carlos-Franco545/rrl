@@ -171,14 +171,13 @@ small{
 <p class="note">Los campos marcados con <span class="required">*</span> son obligatorios.</p>
 
 <div class="container">
-    <p>En caso de tardar mas de 2 minutos esperar a que la pagina se vuelva a inicializar</p>
+    <p>En caso de que la pagina se ////// esperar 2 minutos</p>
     <a href="/volver"><button>Regresar al inicio</button></a>
 </div>
 
 <div class="container">
 <form action="/generar" method="POST">
 
-    <!-- DATOS PERSONALES -->
     <div class="section-title">Datos Personales</div>
 
     <div class="grid">
@@ -298,11 +297,11 @@ small{
     <fieldset class="question">
         <legend>¿Cuenta su hijo(a) con algún tipo de beca? <span class="required">*</span></legend>
         <div class="radio-group">
-            <label><input type="radio" name="beca" value="SI"> Sí</label>
-            <label><input type="radio" name="beca" value="NO"> No</label>
+            <label><input type="radio" id="beca_si" name="beca" value="SI" required> Sí</label>
+            <label><input type="radio" id="beca_no" name="beca" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualBe">¿Cuál?</label>
+            <label for="cualBe">¿Cuál? <span id="asteriscoBeca" class="required" style="display: none;">*</span></label>
             <input type="text" id="cualBe" name="cualBe" placeholder="Ej. Rita Cetina">
         </div>
     </fieldset>
@@ -339,7 +338,6 @@ small{
         </div>
     </fieldset>
 
-    <!-- DATOS MÉDICOS -->
     <div class="section-title">Datos Médicos</div>
 
     <div class="grid">
@@ -371,7 +369,7 @@ small{
             <label><input type="radio" name="int" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualT">¿Cuál?</label>
+            <label for="cualMedico">¿Cuál?</label>
             <input type="text" id="cualMedico" name="cualMedico" placeholder="Describe la intervención o enfermedad">
         </div>
     </fieldset>
@@ -383,7 +381,7 @@ small{
             <label><input type="radio" name="cron" value="NO"> No</label>
         </div>
         <div class="field">
-            <label for="cualT">¿Cuál?</label>
+            <label for="cualSufre">¿Cuál?</label>
             <input type="text" id="cualSufre" name="cualSufre" placeholder="Especifique si aplica">
         </div>
     </fieldset>
@@ -458,7 +456,6 @@ small{
         </div>
     </fieldset>
 
-    <!-- DATOS ACADÉMICOS -->
     <div class="section-title">Datos Académicos</div>
 
     <div class="grid">
@@ -511,7 +508,6 @@ small{
         </div>
     </fieldset>
 
-    <!-- OTROS -->
     <div class="section-title">Otros</div>
 
     <fieldset class="question">
@@ -533,7 +529,6 @@ small{
         </div>
     </div>
 
-    <!-- DESPLAZAMIENTO -->
     <div class="section-title">Desplazamiento a la Escuela</div>
 
     <div class="field">
@@ -564,7 +559,6 @@ small{
         </div>
     </fieldset>
 
-    <!-- OTROS ASPECTOS -->
     <div class="section-title">Otros Aspectos</div>
 
     <div class="grid">
@@ -600,7 +594,7 @@ small{
 
         <div class="field">
             <label for="rinon">¿Presenta algún problema de riñón o vejiga? <span class="required">*</span></label>
-            <input type="text" id="rinon" name="rinon" placeholder="Ej. No / infección recurrente..." required>
+            <input type="text" id="rinon" name="rinon" placeholder="Ej. No / infección recurrentrente..." required>
         </div>
 
         <div class="field">
@@ -659,7 +653,6 @@ small{
         <textarea id="observacion" name="observacion" placeholder="Escriba aquí observaciones relevantes"></textarea>
     </div>
 
-    <!-- TALLA Y PESO -->
     <div class="section-title">Talla y Peso</div>
 
     <div class="grid">
@@ -691,12 +684,36 @@ small{
 
     <div class="field">
         <label for="nobreT">Nombre del padre o tutor</label>
-        <input type="text" id="nobreT" name="nobreT" placeholder="Ej. José Martínez Hernández">
+        <input type="number" id="nobreT" name="nobreT" placeholder="Ej. José Martínez Hernández">
     </div>
 
     <button type="submit">Enviar Registro</button>
 </form>
 </div>
+
+<script>
+    const radioSi = document.getElementById('beca_si');
+    const radioNo = document.getElementById('beca_no');
+    const inputCual = document.getElementById('cualBe');
+    const asteriscoBeca = document.getElementById('asteriscoBeca');
+
+    function toggleBecaRequired() {
+        if (radioSi.checked) {
+            inputCual.required = true;
+            asteriscoBeca.style.display = 'inline';
+        } else {
+            inputCual.required = false;
+            asteriscoBeca.style.display = 'none';
+            if (radioNo.checked) {
+                inputCual.value = ''; // Limpia el texto si cambian a "No"
+            }
+        }
+    }
+
+    // Escuchar el cambio en ambas opciones de radio
+    radioSi.addEventListener('change', toggleBecaRequired);
+    radioNo.addEventListener('change', toggleBecaRequired);
+</script>
 
 </body>
 </html>
