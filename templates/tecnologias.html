@@ -109,32 +109,6 @@ button:hover{
 </style>
 </head>
 
-<script>
-const select1 = document.getElementById("tecnologia1");
-const select2 = document.getElementById("tecnologia2");
-
-select1.addEventListener("change", function() {
-    
-    // Resetear opciones del select2
-    for (let option of select2.options) {
-        option.disabled = false;
-    }
-
-    // Deshabilitar la opción seleccionada en select1
-    let valorSeleccionado = select1.value;
-
-    for (let option of select2.options) {
-        if (option.value === valorSeleccionado) {
-            option.disabled = true;
-        }
-    }
-
-    // Si el usuario ya había seleccionado la misma opción en select2 → limpiarla
-    if (select2.value === valorSeleccionado) {
-        select2.value = "";
-    }
-});
-</script>
 <body>
 
 <h1>Selección de Tecnología</h1>
@@ -297,6 +271,32 @@ select1.addEventListener("change", function() {
 </form>
 
 </div>
+<script>
+const select1 = document.getElementById("tecnologia1");
+const select2 = document.getElementById("tecnologia2");
+
+select1.addEventListener("change", function() {
+    
+    // Resetear opciones del select2
+    for (let option of select2.options) {
+        option.disabled = false;
+    }
+
+    // Deshabilitar la opción seleccionada en select1
+    let valorSeleccionado = select1.value;
+
+    for (let option of select2.options) {
+        if (option.value === valorSeleccionado) {
+            option.disabled = true;
+        }
+    }
+
+    // Si el usuario ya había seleccionado la misma opción en select2 → limpiarla
+    if (select2.value === valorSeleccionado) {
+        select2.value = "";
+    }
+});
+</script>
 
 </body>
 </html>
