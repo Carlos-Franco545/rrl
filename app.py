@@ -76,13 +76,13 @@ def descargar_tecnologia():
 def descargar_autorizacion():
     return send_file(PDF_AUT, as_attachment=True)
 
-@app.route("/descargas/autorizacion-camara")
+@app.route("/descargar/autorizacion-camara")
 def descargar_autorizacion_camara():
-    return send_file(PDF_CAMARA, as_attachment=True)
+    return send_file(PDF_AUT_CAMARA, as_attachment=True)
 
 @app.route("/descargar/auto-camara")
-def descargar_auto_camara():
-    return send_file(PDF_AUT_CAMARA, as_attachment=True)
+def descargar_auto_camaras():
+    return send_file(PDF_CAMARA, as_attachment=True)
 
 
 
