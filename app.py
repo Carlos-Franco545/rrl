@@ -15,8 +15,8 @@ PDF_FIC = "ficha inscripcion(blanco).pdf"
 PDF_AUT = "AUTORIZACIÓN DE USO DE IMÁGENES(blanco).pdf"
 PDF_CED = "CEDULA DE REGISTRO DEL ALUMNO(blanco).pdf"
 
-PDF_AUT_CAMARA = "AUTORIZACION DE USO DE CAMARAS.pdf"
-PDF_CAMARA = "AUTORIZACION DE USO DE CAMARAS.pdf"
+PDF_AUT_CAMARA = "Autorización cámaras (2026 - 2027).pdf"
+PDF_CAMARA = "Carta de corresponsabilidad Familia - Escuela(2026 - 2027).pdf"
 
 def formato_fecha(fecha_iso):
     if not fecha_iso:
