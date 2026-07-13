@@ -15,6 +15,9 @@ PDF_FIC = "ficha inscripcion(blanco).pdf"
 PDF_AUT = "AUTORIZACIÓN DE USO DE IMÁGENES(blanco).pdf"
 PDF_CED = "CEDULA DE REGISTRO DEL ALUMNO(blanco).pdf"
 
+PDF_AUT_CAMARA = "AUTORIZACION DE USO DE CAMARAS.pdf"
+PDF_CAMARA = "AUTORIZACION DE USO DE CAMARAS.pdf"
+
 def formato_fecha(fecha_iso):
     if not fecha_iso:
         return ""
@@ -72,6 +75,15 @@ def descargar_tecnologia():
 @app.route("/descargas/autorizacion")
 def descargar_autorizacion():
     return send_file(PDF_AUT, as_attachment=True)
+
+@app.route("/descargas/autorizacion-camara")
+def descargar_autorizacion_camara():
+    return send_file(PDF_CAMARA, as_attachment=True)
+
+@app.route("/descargar/auto-camara")
+def descargar_auto_camara():
+    return send_file(PDF_AUT_CAMARA, as_attachment=True)
+
 
 
 # ==========================================
