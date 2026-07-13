@@ -13,6 +13,7 @@ PDF_AUTORIZACION = "AUTORIZACION_USO_IMAGEN.pdf"
 PDF_TEC = "Seleccion_de_Tecnologias(blanco).pdf"
 PDF_FIC = "ficha inscripcion(blanco).pdf"
 PDF_AUT = "AUTORIZACIÓN DE USO DE IMÁGENES(blanco).pdf"
+PDF_CED = "CEDULA DE REGISTRO DEL ALUMNO(blanco).pdf"
 
 def formato_fecha(fecha_iso):
     if not fecha_iso:
@@ -58,7 +59,7 @@ def volver():
 
 @app.route("/descargar/cedula")
 def descargar_cedula():
-    return send_file(PDF_CEDULA, as_attachment=True)
+    return send_file(PDF_CED, as_attachment=True)
 
 @app.route("/descargar/ficha")
 def descargar_ficha():
